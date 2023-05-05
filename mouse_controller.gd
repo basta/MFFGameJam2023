@@ -5,9 +5,10 @@ extends Node
 func _ready():
 	pass # Replace with function body.
 
+func set_stamp(stamp):
+	$CurrentStamp.enabled = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(get_viewport().get_mouse_position())
-	if 
+	$CurrentStamp.global_position = get_viewport().get_mouse_position()
 	

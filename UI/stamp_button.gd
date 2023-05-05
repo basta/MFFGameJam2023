@@ -1,5 +1,8 @@
 extends TextureButton
 
+@export var stamp: Node2D;
+
+var selected = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,4 +15,6 @@ func _process(delta):
 
 
 func _on_button_up():
-	Input.set_custom_mouse_cursor(texture_normal) # Replace with function body.
+	get_node("/root/Main/MouseController").set_stamp(stamp)
+	get_parent().reset_selection()
+	selected = true

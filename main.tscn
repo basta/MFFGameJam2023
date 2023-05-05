@@ -1,14 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0ltngmdndklm"]
+[gd_scene load_steps=8 format=3 uid="uid://d0ltngmdndklm"]
 
 [ext_resource type="Script" path="res://Grid.gd" id="1_ckb8m"]
 [ext_resource type="PackedScene" uid="uid://ghak2tcqi5hk" path="res://ui.tscn" id="2_3sxja"]
+[ext_resource type="Texture2D" uid="uid://bd78hs37wehk5" path="res://sprites/white.png" id="2_okgek"]
+[ext_resource type="Script" path="res://Stamp.gd" id="3_krino"]
 [ext_resource type="PackedScene" uid="uid://dcukjaf8del7j" path="res://mouse_controller.tscn" id="3_prhy7"]
 [ext_resource type="Script" path="res://UI/CurrentStamp.gd" id="4_nq55m"]
+[ext_resource type="Texture2D" uid="uid://bwfu8uguyg46t" path="res://icon.svg" id="6_1kxb1"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("1_ckb8m")
+
+[node name="NodeTemplate" type="Sprite2D" parent="Grid"]
+texture = ExtResource("2_okgek")
 
 [node name="UI" parent="." instance=ExtResource("2_3sxja")]
 offset_right = 1152.0
@@ -18,3 +24,9 @@ offset_bottom = 647.0
 
 [node name="CurrentStamp" type="Node2D" parent="MouseController"]
 script = ExtResource("4_nq55m")
+
+[node name="Sprite2D" type="Sprite2D" parent="MouseController/CurrentStamp"]
+texture = ExtResource("6_1kxb1")
+
+[node name="Stamp" type="Node2D" parent="."]
+script = ExtResource("3_krino")

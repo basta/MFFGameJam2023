@@ -1,6 +1,10 @@
 extends Node2D
 
-var enabled = false
+
+@export var SIZE_X := 3
+@export var SIZE_Y := 3
+
+var matrix := []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,4 +14,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Sprite2D.visible = enabled
+	pass
+

@@ -1,7 +1,8 @@
-extends Node2D
+extends VBoxContainer
 
-var enabled = false
-
+func reset_selection():
+	for node in get_children():
+		node.selected = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,4 +11,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Sprite2D.visible = enabled
+	pass
