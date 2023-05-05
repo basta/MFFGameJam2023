@@ -33,5 +33,6 @@ func _process(delta):
 func apply_stamp(pos_x, pos_y, stamp_matrix):
 	for row in range(stamp_matrix.size()):
 		for col in range(stamp_matrix[0].size()):
-			data_matrix[pos_x+row][pos_y+col] = stamp_matrix[row][col]
-			sprite_matrix[pos_x+row][pos_y+col].self_modulate(stamp_matrix[row][col])
+			if stamp_matrix[row][col] != null:
+				data_matrix[pos_x+row][pos_y+col] = stamp_matrix[row][col]
+				sprite_matrix[pos_x+row][pos_y+col].self_modulate(stamp_matrix[row][col])
