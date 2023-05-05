@@ -17,12 +17,13 @@ func _ready():
 		data_matrix.append([])
 		sprite_matrix.append([])
 		for col in range(GRID_COL_AMOUNT):
-			var sprite = $"NodeTemplate".duplicate()
+			var sprite = Sprite2D.new()
+			sprite.texture = load("res://sprites/white.png")
 			sprite.position = Vector2(col * SPRITE_SIZE, row * SPRITE_SIZE)
 			add_child(sprite)
 			data_matrix[row].append(Color.WHITE)
 			sprite_matrix[row].append(sprite)
-	$"NodeTemplate".visible = false
+	# $"NodeTemplate".visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

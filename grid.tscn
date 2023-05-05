@@ -1,10 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6uuv228q07xa"]
+[gd_scene load_steps=2 format=3 uid="uid://b6uuv228q07xa"]
 
 [ext_resource type="Script" path="res://Grid.gd" id="1_10be1"]
-[ext_resource type="Texture2D" uid="uid://bd78hs37wehk5" path="res://sprites/white.png" id="2_whpyg"]
 
 [node name="Grid" type="Node2D"]
 script = ExtResource("1_10be1")
-
-[node name="NodeTemplate" type="Sprite2D" parent="."]
-texture = ExtResource("2_whpyg")
