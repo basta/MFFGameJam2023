@@ -14,3 +14,5 @@ texture = ExtResource("2_okgek")
 
 [node name="Stamp" type="Node2D" parent="."]
 script = ExtResource("3_krino")
+SIZE_X = null
+SIZE_Y = null
