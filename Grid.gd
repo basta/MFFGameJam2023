@@ -37,6 +37,10 @@ func apply_stamp(pos_x, pos_y, stamp_matrix):
 	print(pos_x, " ", pos_y)
 	for row in range(stamp_matrix.size()):
 		for col in range(stamp_matrix[0].size()):
+			# Check bounds
+			if row + pos_y >= sprite_matrix.size() or col + pos_x >= sprite_matrix[0].size():
+				continue 
+			
 			if stamp_matrix[row][col] != null:
 				data_matrix[pos_y+row][pos_x+col] = stamp_matrix[row][col]
 				sprite_matrix[pos_y+row][pos_x+col].modulate = stamp_matrix[row][col]
@@ -44,6 +48,3 @@ func apply_stamp(pos_x, pos_y, stamp_matrix):
 func get_xy_from_global_pos(global_pos: Vector2) -> Vector2:
 	var offset = global_pos-position
 	return Vector2(int(offset.x/SPRITE_SIZE), int(offset.y/SPRITE_SIZE))
-			if stamp_matrix[row][col] != null:
-				data_matrix[pos_x+row][pos_y+col] = stamp_matrix[row][col]
-				sprite_matrix[pos_x+row][pos_y+col].self_modulate(stamp_matrix[row][col])
