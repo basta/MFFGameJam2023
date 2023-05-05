@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0ltngmdndklm"]
+[gd_scene load_steps=10 format=3 uid="uid://d0ltngmdndklm"]
 
 [ext_resource type="Script" path="res://Grid.gd" id="1_ckb8m"]
 [ext_resource type="PackedScene" uid="uid://ghak2tcqi5hk" path="res://ui.tscn" id="2_3sxja"]
@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://dcukjaf8del7j" path="res://mouse_controller.tscn" id="3_prhy7"]
 [ext_resource type="Script" path="res://UI/CurrentStamp.gd" id="4_nq55m"]
 [ext_resource type="Texture2D" uid="uid://bwfu8uguyg46t" path="res://icon.svg" id="6_1kxb1"]
+[ext_resource type="PackedScene" uid="uid://b6uuv228q07xa" path="res://grid.tscn" id="1_dmvp1"]
+[ext_resource type="Script" path="res://Stamps.gd" id="2_hcn6a"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Grid" type="Node2D" parent="."]
-script = ExtResource("1_ckb8m")
+[node name="Grid" parent="." instance=ExtResource("1_dmvp1")]
 
 [node name="NodeTemplate" type="Sprite2D" parent="Grid"]
 texture = ExtResource("2_okgek")
@@ -30,3 +31,6 @@ texture = ExtResource("6_1kxb1")
 
 [node name="Stamp" type="Node2D" parent="."]
 script = ExtResource("3_krino")
+
+[node name="Stamps" type="Node2D" parent="."]
+script = ExtResource("2_hcn6a")
