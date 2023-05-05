@@ -28,6 +28,6 @@ func generate_ui_node():
 			if stamp_matrix[row][col] != null:
 				var sprite = grid_node_scene.instantiate()
 				sprite.position = Vector2(col * SPRITE_SIZE, row * SPRITE_SIZE)
-				sprite.position = Vector2(col * SPRITE_SIZE, row * SPRITE_SIZE)
 				node.add_child(sprite)
+	return node
 	
