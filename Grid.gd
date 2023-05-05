@@ -7,6 +7,7 @@ var grid_node_scene = preload("res://grid_node.tscn")
 @export var GRID_ROW_AMOUNT = 10
 @export var GRID_COL_AMOUNT = 10
 
+var SPRITE_SIZE
 
 
 var data_matrix : Array = [] 		# matrix of Colors
@@ -24,6 +25,7 @@ func _ready():
 			add_child(sprite)
 			data_matrix[row].append(Color.WHITE)
 			sprite_matrix[row].append(sprite)
+	SPRITE_SIZE = sprite_matrix[0][0].SPRITE_SIZE
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
