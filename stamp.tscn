@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7m4obw0vy7gs"]
+
+[ext_resource type="Script" path="res://Stamp.gd" id="1_twp1j"]
+
+[node name="Stamp" type="Node2D"]
+script = ExtResource("1_twp1j")
+SIZE_X = null
+SIZE_Y = null
