@@ -16,5 +16,5 @@ func _process(delta):
 
 func _on_button_up():
 	get_node("/root/Main/MouseController").set_stamp(stamp)
-	get_parent().reset_selection()
+	get_parent().get_parent().reset_selection()
 	selected = true

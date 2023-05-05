@@ -1,10 +1,13 @@
 extends Node2D
 
+class_name Grid
+
 
 @export var GRID_ROW_AMOUNT = 10
 @export var GRID_COL_AMOUNT = 10
 
 @export var SPRITE_SIZE = 32
+
 
 
 var data_matrix : Array = [] 		# matrix of Colors
@@ -31,7 +34,12 @@ func _process(delta):
 
 
 func apply_stamp(pos_x, pos_y, stamp_matrix):
+	print(pos_x, " ", pos_y)
 	for row in range(stamp_matrix.size()):
 		for col in range(stamp_matrix[0].size()):
-			data_matrix[pos_x+row][pos_y+col] = stamp_matrix[row][col]
-			sprite_matrix[pos_x+row][pos_y+col].self_modulate(stamp_matrix[row][col])
+			data_matrix[pos_y+row][pos_x+col] = stamp_matrix[row][col]
+			sprite_matrix[pos_y+row][pos_x+col].modulate = stamp_matrix[row][col]
+
+func get_xy_from_global_pos(global_pos: Vector2) -> Vector2:
+	var offset = global_pos-position
+	return Vector2(int(offset.x/SPRITE_SIZE), int(offset.y/SPRITE_SIZE))

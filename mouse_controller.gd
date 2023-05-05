@@ -12,3 +12,14 @@ func set_stamp(stamp):
 func _process(delta):
 	$CurrentStamp.global_position = get_viewport().get_mouse_position()
 	
+func _input(event):
+	if event.is_action_pressed("select"):
+		var grid_node: Grid = get_node("/root/Main/Grid")
+		var index_pos = grid_node.get_xy_from_global_pos(event.position)
+		var pattern = [
+				[Color(1,0,0,1), Color(1,0,0,1)],
+				[Color(1,0,0,1), Color(1,0,0,1)],
+			]
+			
+		grid_node.apply_stamp(index_pos.x, index_pos.y, pattern)
+		
