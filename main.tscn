@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0ltngmdndklm"]
+[gd_scene load_steps=4 format=3 uid="uid://d0ltngmdndklm"]
 
 [ext_resource type="Script" path="res://Grid.gd" id="1_ckb8m"]
+[ext_resource type="Texture2D" uid="uid://bd78hs37wehk5" path="res://sprites/white.png" id="2_okgek"]
+[ext_resource type="Script" path="res://Stamp.gd" id="3_krino"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("1_ckb8m")
+
+[node name="NodeTemplate" type="Sprite2D" parent="Grid"]
+texture = ExtResource("2_okgek")
+
+[node name="Stamp" type="Node2D" parent="."]
+script = ExtResource("3_krino")
