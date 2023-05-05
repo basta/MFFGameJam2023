@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://drfumsgqcnw3o"]
+[gd_scene load_steps=3 format=3 uid="uid://drfumsgqcnw3o"]
 
 [ext_resource type="Texture2D" uid="uid://bd78hs37wehk5" path="res://sprites/white.png" id="1_dvi2v"]
+[ext_resource type="Script" path="res://grid_node.gd" id="2_c0ray"]
 
 [node name="GridNode" type="Sprite2D"]
 texture = ExtResource("1_dvi2v")
 centered = false
+
+script = ExtResource("2_c0ray")

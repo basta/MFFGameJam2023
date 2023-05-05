@@ -7,8 +7,6 @@ var grid_node_scene = preload("res://grid_node.tscn")
 @export var GRID_ROW_AMOUNT = 10
 @export var GRID_COL_AMOUNT = 10
 
-@export var SPRITE_SIZE = 32
-
 
 
 var data_matrix : Array = [] 		# matrix of Colors
@@ -22,7 +20,7 @@ func _ready():
 		sprite_matrix.append([])
 		for col in range(GRID_COL_AMOUNT):
 			var sprite = grid_node_scene.instantiate()
-			sprite.position = Vector2(col * SPRITE_SIZE, row * SPRITE_SIZE)
+			sprite.set_grid_position(row, col)
 			add_child(sprite)
 			data_matrix[row].append(Color.WHITE)
 			sprite_matrix[row].append(sprite)

@@ -6,7 +6,6 @@ var grid_node_scene = preload("res://grid_node.tscn")
 @export var SIZE_X := 3
 @export var SIZE_Y := 3
 
-@export var SPRITE_SIZE = 32
 
 var stamp_matrix : Array = []		# array of Colors
 
@@ -27,7 +26,7 @@ func generate_ui_node():
 		for col in range(stamp_matrix[0].size()):
 			if stamp_matrix[row][col] != null:
 				var sprite = grid_node_scene.instantiate()
-				sprite.position = Vector2(col * SPRITE_SIZE, row * SPRITE_SIZE)
+				sprite.set_grid_position(row, col)
 				node.add_child(sprite)
 	return node
 	
