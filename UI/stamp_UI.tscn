@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://di5y7w32o46aq"]
+
+[ext_resource type="Texture2D" uid="uid://bwfu8uguyg46t" path="res://icon.svg" id="1_1dmul"]
+[ext_resource type="Script" path="res://UI/stamp_button.gd" id="2_tkmjm"]
+
+[node name="MarginContainer" type="MarginContainer"]
+theme_override_constants/margin_bottom = 40
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("1_1dmul")
+script = ExtResource("2_tkmjm")
+
+[connection signal="button_up" from="TextureButton" to="TextureButton" method="_on_button_up"]
