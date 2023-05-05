@@ -1,5 +1,7 @@
 extends Node2D
 
+var grid_node_scene = preload("res://grid_node.tscn")
+
 
 @export var GRID_ROW_AMOUNT = 10
 @export var GRID_COL_AMOUNT = 10
@@ -17,13 +19,11 @@ func _ready():
 		data_matrix.append([])
 		sprite_matrix.append([])
 		for col in range(GRID_COL_AMOUNT):
-			var sprite = Sprite2D.new()
-			sprite.texture = load("res://sprites/white.png")
+			var sprite = grid_node_scene.instantiate()
 			sprite.position = Vector2(col * SPRITE_SIZE, row * SPRITE_SIZE)
 			add_child(sprite)
 			data_matrix[row].append(Color.WHITE)
 			sprite_matrix[row].append(sprite)
-	# $"NodeTemplate".visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

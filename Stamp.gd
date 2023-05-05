@@ -1,5 +1,7 @@
 extends Node2D
 
+var grid_node_scene = preload("res://grid_node.tscn")
+
 
 @export var SIZE_X := 3
 @export var SIZE_Y := 3
@@ -24,8 +26,8 @@ func generate_ui_node():
 	for row in range(stamp_matrix.size()):
 		for col in range(stamp_matrix[0].size()):
 			if stamp_matrix[row][col] != null:
-				var sprite = Sprite2D.new()
-				sprite.texture = load("res://sprites/white.png")
+				var sprite = grid_node_scene.instantiate()
+				sprite.position = Vector2(col * SPRITE_SIZE, row * SPRITE_SIZE)
 				sprite.position = Vector2(col * SPRITE_SIZE, row * SPRITE_SIZE)
 				node.add_child(sprite)
 	
