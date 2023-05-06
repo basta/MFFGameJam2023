@@ -3,15 +3,9 @@ extends Node2D
 var stamp_scene = preload("res://stamp.tscn")
 
 var stamps = []
-var stamps_data = [
-	[[Color.RED, Color.WHITE], [Color.RED, Color.WHITE]],
-	[[Color.RED, Color.WHITE], [Color.WHITE, Color.RED, ]],
-	[[Color.WHITE, Color.WHITE], [Color.WHITE, Color.WHITE, ]],
-	[[null, null], [null, null]],
-]
+var stamps_data
 
 
-# Called when the node enters the scene tree for the first time.
 func create_stamps():
 	for i in range(stamps_data.size()):
 		var stamp = stamp_scene.instantiate()
