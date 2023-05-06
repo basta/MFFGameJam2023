@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ghak2tcqi5hk" path="res://ui.tscn" id="2_3sxja"]
 [ext_resource type="Script" path="res://Stamps.gd" id="2_hcn6a"]
 [ext_resource type="Script" path="res://Stamp.gd" id="3_krino"]
-[ext_resource type="PackedScene" uid="uid://dk2rsewma5qbg" path="res://mouse_controller.tscn" id="3_prhy7"]
+[ext_resource type="PackedScene" uid="uid://dcukjaf8del7j" path="res://mouse_controller.tscn" id="3_prhy7"]
 
 [sub_resource type="Gradient" id="Gradient_kadeq"]
 offsets = PackedFloat32Array(0, 0.935484)
