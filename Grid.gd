@@ -55,7 +55,7 @@ func get_xy_from_global_pos(global_pos: Vector2) -> Vector2:
 	return Vector2(int(offset.x / Global.SPRITE_SIZE), int(offset.y / Global.SPRITE_SIZE))
 
 
-func show_cursor(global_pos: Vector2) -> void:
+func place_cursor(global_pos: Vector2) -> void:
 	var local_pos = get_xy_from_global_pos(global_pos)
 	var row = local_pos.y
 	var col = local_pos.x

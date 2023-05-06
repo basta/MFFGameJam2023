@@ -15,4 +15,4 @@ centered = false
 [node name="Tile" type="Sprite2D" parent="."]
 texture = ExtResource("1_dvi2v")
 centered = false
-offset = Vector2(1, 1)
+offset = Vector2(2, 2)

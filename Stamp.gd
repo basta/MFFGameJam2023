@@ -6,8 +6,8 @@ class_name Stamp
 var grid_node_scene = preload("res://grid_node.tscn")
 
 
-@export var SIZE_X := 3
-@export var SIZE_Y := 3
+@export var SIZE_X: int
+@export var SIZE_Y: int
 
 
 var stamp_matrix : Array = []		# array of Colors
@@ -21,14 +21,22 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	
+
+
+func set_matrix(matrix):
+	stamp_matrix = matrix
+	SIZE_X = matrix[0].size()
+	SIZE_Y = matrix.size()
+
+
 func sprite_to_texture_rect(grid_node: GridNode) -> TextureRect:
 	var trect = TextureRect.new()
 	var sprite = grid_node.get_node("Tile")
 	trect.texture = sprite.texture
 	trect.modulate = sprite.modulate
 	return trect
-	
+
+
 func create_ui_grid() -> GridContainer:
 	var grid_ctr = GridContainer.new()
 	grid_ctr.columns = stamp_matrix[0].size()
