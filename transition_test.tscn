@@ -7,6 +7,7 @@
 shader = ExtResource("1_lftjg")
 shader_parameter/old_color = Vector4(1, 0, 0, 1)
 shader_parameter/new_color = Vector4(0, 1, 0, 1)
+shader_parameter/progress = null
 
 [node name="TransitionTest" type="Node2D"]
 

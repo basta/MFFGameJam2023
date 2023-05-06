@@ -60,9 +60,9 @@ func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
 				continue 
 			if stamp_matrix[row][col].a == 0:
 				continue
-			move.append([Vector2(pos_y+row, pos_x+col), sprite_matrix[pos_y+row][pos_x+col].modulate])
+			move.append([Vector2(pos_y+row, pos_x+col), sprite_matrix[pos_y+row][pos_x+col].color])
 			data_matrix[pos_y+row][pos_x+col] = stamp_matrix[row][col]
-			sprite_matrix[pos_y+row][pos_x+col].modulate = stamp_matrix[row][col]
+			sprite_matrix[pos_y+row][pos_x+col].transition(stamp_matrix[row][col])
 	if history:
 		move_history.append(move)
 
