@@ -27,7 +27,7 @@ func resized():
 #	var SPRITE_SIZE = SPRITE_TEXTURE_SIZE + SPRITE_TEXTURE_OFFSET
 
 func resize_background():
-	$"../Background".scale = get_viewport().size
+	$"../Background".scale = get_viewport().size / 2000.
 	$"../Background".position = get_viewport().size/2
 	
 	

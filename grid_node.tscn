@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://drfumsgqcnw3o"]
 
 [ext_resource type="Script" path="res://grid_node.gd" id="2_c0ray"]
-[ext_resource type="Texture2D" uid="uid://dk65nbkq48i5f" path="res://sprites/gray_border.png" id="2_epe77"]
 [ext_resource type="Texture2D" uid="uid://csajhsbenjq6f" path="res://sprites/tile_round.svg" id="3_nujkn"]
 [ext_resource type="Shader" path="res://transition_test.gdshader" id="3_vkokn"]
+[ext_resource type="Texture2D" uid="uid://b1kg0hyu3c7fb" path="res://sprites/tile_round_border.svg" id="4_5qkjx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ue6tv"]
 shader = ExtResource("3_vkokn")
@@ -15,14 +15,15 @@ shader_parameter/progress = null
 script = ExtResource("2_c0ray")
 transition_time = 0.65
 
-[node name="Border" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("2_epe77")
-centered = false
-
 [node name="Tile" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_ue6tv")
 scale = Vector2(0.167, 0.167)
 texture = ExtResource("3_nujkn")
+centered = false
+offset = Vector2(2, 2)
+
+[node name="Border" type="Sprite2D" parent="."]
+scale = Vector2(0.167, 0.167)
+texture = ExtResource("4_5qkjx")
 centered = false
 offset = Vector2(2, 2)
