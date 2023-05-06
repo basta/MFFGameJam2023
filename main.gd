@@ -21,6 +21,7 @@ var level_names = [
 	"banana",
 	"potion",
 	"ketchup-mustard",
+	"devil",
 ]
 
 
