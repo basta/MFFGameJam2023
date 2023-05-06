@@ -16,6 +16,5 @@ func animate():
 	print_debug("CONGRATS!")
 	for move in move_history:
 		for change in move:
-			print_debug(change)
-			sprite_matrix[change[0].y][change[0].x].transition(change[2])
-			await get_tree().create_timer(.25).timeout
+			sprite_matrix[change[0].x][change[0].y].transition(change[2])
+		await get_tree().create_timer(.4).timeout
