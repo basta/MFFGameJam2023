@@ -5,6 +5,8 @@ var stamp_scene = preload("res://stamp.tscn")
 var stamps = []
 var stamps_data = [
 	[[Color.RED, Color.WHITE], [Color.RED, Color.WHITE]],
+	[[Color.RED, Color.WHITE], [Color.WHITE, Color.RED, ]],
+	[[Color.WHITE, Color.WHITE], [Color.WHITE, Color.WHITE, ]],
 	[[null, null], [null, null]],
 ]
 

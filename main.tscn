@@ -6,8 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://bd78hs37wehk5" path="res://sprites/white.png" id="2_okgek"]
 [ext_resource type="Script" path="res://Stamp.gd" id="3_krino"]
 [ext_resource type="PackedScene" uid="uid://dk2rsewma5qbg" path="res://mouse_controller.tscn" id="3_prhy7"]
-[ext_resource type="Script" path="res://UI/CurrentStamp.gd" id="4_nq55m"]
-[ext_resource type="Texture2D" uid="uid://bwfu8uguyg46t" path="res://icon.svg" id="6_1kxb1"]
+
+[sub_resource type="Gradient" id="Gradient_kadeq"]
+offsets = PackedFloat32Array(0, 0.935484)
+colors = PackedColorArray(0.8464, 0.907733, 0.92, 1, 0.6532, 0.875533, 0.92, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xt322"]
+gradient = SubResource("Gradient_kadeq")
 
 [node name="Main" type="Node2D"]
 
@@ -18,18 +23,23 @@ texture = ExtResource("2_okgek")
 
 [node name="MouseController" parent="." instance=ExtResource("3_prhy7")]
 
-[node name="CurrentStamp" type="Node2D" parent="MouseController"]
-script = ExtResource("4_nq55m")
-
-[node name="Sprite2D" type="Sprite2D" parent="MouseController/CurrentStamp"]
-texture = ExtResource("6_1kxb1")
-
 [node name="Stamp" type="Node2D" parent="."]
 script = ExtResource("3_krino")
 
 [node name="Stamps" type="Node2D" parent="."]
 script = ExtResource("2_hcn6a")
 
-[node name="UI" parent="." instance=ExtResource("2_3sxja")]
-offset_right = 1152.0
-offset_bottom = 647.0
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 324)
+
+[node name="UI" parent="Camera2D" instance=ExtResource("2_3sxja")]
+offset_left = -578.0
+offset_top = -324.0
+offset_right = 574.0
+offset_bottom = 323.0
+
+[node name="Background" type="Sprite2D" parent="Camera2D"]
+z_index = -10
+position = Vector2(26.5, 0)
+scale = Vector2(19.7031, 11.2188)
+texture = SubResource("GradientTexture2D_xt322")
