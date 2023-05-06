@@ -9,9 +9,12 @@ const CONTENT_WIDTH = .8
 
 var level_names = [
 	"heart",
-	"house",
+	"tree",
 	"smiley",
-	"tree"
+	"house",
+	"glass",
+	"apple",
+	"robot",
 ]
 
 
