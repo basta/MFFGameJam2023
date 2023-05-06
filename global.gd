@@ -2,7 +2,8 @@ extends Node
 
 class_name Global
 
-const SPRITE_SIZE = 32 + 4
+const SPRITE_TEXTURE_SIZE = 32
+const SPRITE_SIZE = SPRITE_TEXTURE_SIZE + 4
 
 
 # Called when the node enters the scene tree for the first time.

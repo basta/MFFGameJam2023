@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6uuv228q07xa"]
+[gd_scene load_steps=5 format=3 uid="uid://b6uuv228q07xa"]
 
 [ext_resource type="Script" path="res://Grid.gd" id="1_10be1"]
 [ext_resource type="PackedScene" uid="uid://drfumsgqcnw3o" path="res://grid_node.tscn" id="2_cbc1f"]
+[ext_resource type="Script" path="res://Cursor.gd" id="3_p3q0w"]
 [ext_resource type="Texture2D" uid="uid://d2qodh4len8kg" path="res://sprites/black.png" id="3_wv2v4"]
 
 [node name="Grid" type="Node2D"]
@@ -10,8 +11,8 @@ script = ExtResource("1_10be1")
 [node name="GridNode" parent="." instance=ExtResource("2_cbc1f")]
 
 [node name="Cursor" type="Node2D" parent="."]
-scale = Vector2(2, 2)
+script = ExtResource("3_p3q0w")
 
-[node name="Sprite2D" type="Sprite2D" parent="Cursor"]
+[node name="Sprite" type="Sprite2D" parent="Cursor"]
 texture = ExtResource("3_wv2v4")
 centered = false

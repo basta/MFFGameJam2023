@@ -59,4 +59,10 @@ func show_cursor(global_pos: Vector2) -> void:
 	var local_pos = get_xy_from_global_pos(global_pos)
 	var row = local_pos.y
 	var col = local_pos.x
-	set_grid_position(row, col, cursor)
+	print_debug(row, " ", sprite_matrix.size())
+	print_debug(col, " ", sprite_matrix[0].size())
+	if row < sprite_matrix.size() || col < sprite_matrix[0].size():
+		cursor.visible = true
+		set_grid_position(row, col, cursor)
+	else:
+		cursor.visible = false
