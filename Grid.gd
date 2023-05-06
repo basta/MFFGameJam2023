@@ -70,19 +70,15 @@ func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
 	if history:
 		move_history.append(move)
 
+
 func get_xy_from_global_pos(global_pos: Vector2) -> Vector2:
 	var offset = global_pos-position
 	return Vector2(int(offset.x / Global.SPRITE_SIZE), int(offset.y / Global.SPRITE_SIZE))
 
 
 func is_cursor_valid(index_pos: Vector2) -> bool:
-	return index_pos.y <= GRID_ROW_AMOUNT - cursor.SIZE_X && index_pos.x <= GRID_COL_AMOUNT - cursor.SIZE_X
-	
-func undo():
-	var last_move = move_history.pop_back()
-	if last_move:
-		for change in last_move:
-			apply_stamp(change[0].y, change[0].x, [[change[1]]], false)
+	return 0 <= index_pos.y && index_pos.y <= GRID_ROW_AMOUNT - cursor.SIZE_X && 0 <= index_pos.x && index_pos.x <= GRID_COL_AMOUNT - cursor.SIZE_X
+
 
 func place_cursor(index_pos: Vector2) -> void:
 	if is_cursor_valid(index_pos):
@@ -90,3 +86,11 @@ func place_cursor(index_pos: Vector2) -> void:
 		set_grid_position(index_pos.y, index_pos.x, cursor)
 	else:
 		cursor.disable()
+
+
+func undo():
+	var last_move = move_history.pop_back()
+	if last_move:
+		for change in last_move:
+			apply_stamp(change[0].y, change[0].x, [[change[1]]], false)
+
