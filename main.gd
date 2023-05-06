@@ -15,6 +15,7 @@ var level_names = [
 	"glass",
 	"apple",
 	"robot",
+	"banana",
 ]
 
 
@@ -37,6 +38,10 @@ func load_level(level_int: int):
 	var viewport_size = get_viewport().size
 	load_grid(grid)
 	load_stamps(stamps)
+
+
+func is_level_solved() -> bool:
+	return $Grid.data_matrix == $SourceGrid.data_matrix
 
 
 func _ready():
