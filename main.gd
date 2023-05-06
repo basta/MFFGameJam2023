@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Main
+
 var SPRITE_TEXTURE_OFFSET = 4
 var SPRITE_TEXTURE_SIZE = 32
 var SPRITE_SIZE = SPRITE_TEXTURE_SIZE + SPRITE_TEXTURE_OFFSET
@@ -49,26 +51,16 @@ func is_level_solved() -> bool:
 
 
 func play_congrats_scene():
-	var root_node = get_node("/root")
-	
-	var congrats_scene = load("res://level_completed.tscn").instantiate()
-	root_node.add_child(congrats_scene)
-	var completed_grid_node = congrats_scene.get_node("CompletedGrid")
+	$Grid.hide()
+	$SourceGrid.hide()
+	$CanvasLayer.hide()
+	var completed_grid_node = load("res://completed_grid.tscn").instantiate()
+	add_child(completed_grid_node)
 	completed_grid_node.init_grid($Grid.GRID_ROW_AMOUNT, $Grid.GRID_COL_AMOUNT)
 	completed_grid_node.move_history = $Grid.move_history
-	
-	var main_node = root_node.get_node("Main")
-	root_node.remove_child(main_node)
-	main_node.call_deferred("free")
-	
 	completed_grid_node.animate()
 
 
 func _ready():
 	load_level(7)
-
-
-func _process(delta):
-	if is_level_solved():
-		play_congrats_scene()
 
