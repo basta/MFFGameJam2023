@@ -15,7 +15,12 @@ var sprite_matrix : Array = []		# matrix of Sprite references
 
 var cursor: Node2D
 
-var move_history: Array = []
+var move_history: Array[Array] = []
+# [
+#  ...
+#  [[vec1, old_color, new_color], [vec2, old_color, new_color]...], # Move before last
+#  [[vec1, old_color, new_color], [vec2, old_color, new_color]...], # Last move
+# ]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -52,22 +57,31 @@ func set_grid_position(row, col, object):
 	object.position = Vector2(col * main_node.SPRITE_SIZE, row * main_node.SPRITE_SIZE)
 
 const HALF_YELLOW = Color("#ffff80")
+const HALF_MAGENTA = Color("#ff80ff")
 const MIXING = {
+	HALF_MAGENTA: {
+		HALF_MAGENTA: Color("#ff00ff"),
+		HALF_YELLOW: Color("#ff0000"),
+	},
 	HALF_YELLOW: {
-		HALF_YELLOW: Color("#ffff00")
-	}
+		HALF_MAGENTA: Color("#ff0000"),
+		HALF_YELLOW: Color("#ffff00"),
+	},
 }
 
 func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
-	print(pos_x, " ", pos_y)
+	print_debug(pos_x, " ", pos_y)
 	var move = [] # for logging for undo
 	for row in range(stamp_matrix.size()):
 		for col in range(stamp_matrix[0].size()):
-			if row + pos_y >= sprite_matrix.size() or col + pos_x >= sprite_matrix[0].size():
+			if row + pos_y >= GRID_ROW_AMOUNT or col + pos_x >= GRID_COL_AMOUNT:
 				continue 
 			if stamp_matrix[row][col].a == 0:
 				continue
-			move.append([Vector2(pos_y+row, pos_x+col), sprite_matrix[pos_y+row][pos_x+col].color])
+			move.append([
+				Vector2(pos_y+row, pos_x+col),
+				sprite_matrix[pos_y+row][pos_x+col].color,
+				stamp_matrix[row][col]])
 			var current_color = data_matrix[pos_y+row][pos_x+col]
 			var new_color = stamp_matrix[row][col]
 			if current_color != Color("#ffffff") and MIXING.has(new_color):

@@ -10,6 +10,7 @@ signal level_loaded
 
 
 var level_names = [
+	"neco",
 	"heart",
 	"tree",
 	"smiley",
@@ -18,6 +19,7 @@ var level_names = [
 	"apple",
 	"robot",
 	"banana",
+	"potion",
 ]
 
 
@@ -46,5 +48,27 @@ func is_level_solved() -> bool:
 	return $Grid.data_matrix == $SourceGrid.data_matrix
 
 
+func play_congrats_scene():
+	var root_node = get_node("/root")
+	
+	var congrats_scene = load("res://level_completed.tscn").instantiate()
+	root_node.add_child(congrats_scene)
+	var completed_grid_node = congrats_scene.get_node("CompletedGrid")
+	completed_grid_node.init_grid($Grid.GRID_ROW_AMOUNT, $Grid.GRID_COL_AMOUNT)
+	completed_grid_node.move_history = $Grid.move_history
+	
+	var main_node = root_node.get_node("Main")
+	root_node.remove_child(main_node)
+	main_node.call_deferred("free")
+	
+	completed_grid_node.animate()
+
+
 func _ready():
-	load_level(4)
+	load_level(0)
+
+
+func _process(delta):
+	if is_level_solved():
+		play_congrats_scene()
+

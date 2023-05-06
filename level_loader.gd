@@ -6,12 +6,14 @@ const COLORS = {
 	"B": Color("#000000"),
 	"C": Color("#00ffff"),
 	"G": Color("#808080"),
+	"M": Color("#ff00ff"),
 	"O": Color("#ff8000"),
 	"R": Color("#ff0000"),
 	"W": Color("#ffffff"),
 	"Y": Color("#ffff00"),
 	"b": Color("#0000ff"),
 	"g": Color("#008000"),
+	"m": Color("#ff80ff"),
 	"y": Color("#ffff80"),
 }
 
