@@ -1,5 +1,5 @@
 extends VBoxContainer
-var button_scene = preload("res://UI/stamp_UI.tscn")
+var button_scene = preload("res://UI/stamp_button.tscn")
 
 func reset_selection():
 	for node in get_children():
@@ -10,9 +10,9 @@ func _ready():
 	var stamps_ctr = get_node("/root/Main/Stamps")
 	for stamp in stamps_ctr.get_children():
 		var grid : GridContainer = stamp.generate_ui_node()
-		var button = button_scene.instantiate()
-		add_child(button)
-		button.add_child(grid)
+		var button_ctr := button_scene.instantiate()
+		add_child(button_ctr)
+		button_ctr.add_stamp_ui(grid)
 		
 		
 

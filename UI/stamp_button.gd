@@ -1,4 +1,4 @@
-extends TextureButton
+extends Button
 
 @export var stamp: Node2D;
 

@@ -39,8 +39,9 @@ func generate_ui_node():
 	for col in range(stamp_matrix[0].size()):
 		for row in range(stamp_matrix.size()):
 			if stamp_matrix[row][col] != null:
-				var sprite = grid_node_scene.instantiate()
-				sprite.set_grid_position(row, col)
-				grid_ctr.add_child(sprite)
+				var color = stamp_matrix[row][col]
+				var trect = sprite_to_texture_rect(grid_node_scene.instantiate())
+				trect.modulate = color
+				grid_ctr.add_child(trect)
 	return grid_ctr
 	
