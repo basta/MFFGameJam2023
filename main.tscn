@@ -21,7 +21,7 @@ gradient = SubResource("Gradient_kadeq")
 script = ExtResource("1_rl4kn")
 
 [node name="Grid" parent="." instance=ExtResource("1_dmvp1")]
-position = Vector2(554, 33)
+position = Vector2(554, 0)
 
 [node name="SourceGrid" type="Node2D" parent="."]
 position = Vector2(23, 25)
@@ -42,17 +42,16 @@ script = ExtResource("3_krino")
 [node name="Stamps" type="Node2D" parent="."]
 script = ExtResource("2_hcn6a")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(578, 324)
-
-[node name="UI" parent="Camera2D" instance=ExtResource("2_3sxja")]
-offset_left = -578.0
-offset_top = -324.0
-offset_right = 574.0
-offset_bottom = 323.0
-
-[node name="Background" type="Sprite2D" parent="Camera2D"]
+[node name="Background" type="Sprite2D" parent="."]
 z_index = -10
-position = Vector2(2, -24)
+z_as_relative = false
+position = Vector2(580, 300)
 scale = Vector2(19.7031, 11.2188)
 texture = SubResource("GradientTexture2D_xt322")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("2_3sxja")]
+size_flags_horizontal = 3
+size_flags_vertical = 3

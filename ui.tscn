@@ -11,52 +11,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qcpu2")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Bottom" type="MarginContainer" parent="."]
 layout_mode = 2
-alignment = 1
-
-[node name="Left" type="MarginContainer" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Left"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HBoxContainer/Left/VBoxContainer"]
-layout_mode = 2
-text = "NECO"
-
-[node name="Label2" type="Label" parent="HBoxContainer/Left/VBoxContainer"]
-layout_mode = 2
-text = "NECO"
-
-[node name="Label3" type="Label" parent="HBoxContainer/Left/VBoxContainer"]
-layout_mode = 2
-text = "NECO"
-
-[node name="Label4" type="Label" parent="HBoxContainer/Left/VBoxContainer"]
-layout_mode = 2
-text = "NECO"
-
-[node name="Label5" type="Label" parent="HBoxContainer/Left/VBoxContainer"]
-layout_mode = 2
-text = "NECO"
-
-[node name="Label6" type="Label" parent="HBoxContainer/Left/VBoxContainer"]
-layout_mode = 2
-text = "NECO"
-
-[node name="Label7" type="Label" parent="HBoxContainer/Left/VBoxContainer"]
-layout_mode = 2
-text = "NECO"
-
-[node name="Grid" type="MarginContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Right" type="MarginContainer" parent="HBoxContainer"]
-layout_mode = 2
+size_flags_vertical = 8
 theme_override_constants/margin_right = 100
 
-[node name="Stamps" type="VBoxContainer" parent="HBoxContainer/Right"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Bottom"]
 layout_mode = 2
+size_flags_vertical = 8
 script = ExtResource("1_o7ect")

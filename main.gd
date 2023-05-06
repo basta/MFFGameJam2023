@@ -18,7 +18,7 @@ func load_grid(grid):
 func load_stamps(stamps):
 	$Stamps.stamps_data = stamps
 	$Stamps.create_stamps()
-	$Camera2D/UI.show_stamps()
+	$CanvasLayer/UI.show_stamps()
 
 
 func load_level(level_int: int):
@@ -30,4 +30,4 @@ func load_level(level_int: int):
 
 
 func _ready():
-	load_level(1)
+	load_level(2)

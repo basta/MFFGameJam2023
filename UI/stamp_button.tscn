@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://di5y7w32o46aq"]
+[gd_scene load_steps=4 format=3 uid="uid://di5y7w32o46aq"]
 
 [ext_resource type="Script" path="res://UI/stamp_button_ctr.gd" id="1_olaae"]
 [ext_resource type="PackedScene" uid="uid://cumsw8vadtwbf" path="res://line.tscn" id="2_72647"]
 
+[sub_resource type="Theme" id="Theme_vurmd"]
+
 [node name="MarginContainer" type="MarginContainer"]
+theme = SubResource("Theme_vurmd")
 theme_override_constants/margin_bottom = 40
 script = ExtResource("1_olaae")
 
 [node name="Line2D" parent="." instance=ExtResource("2_72647")]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
