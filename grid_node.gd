@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name GridNode
+
 
 @export var SPRITE_SIZE = 32 + 2
 

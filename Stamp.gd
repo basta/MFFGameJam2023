@@ -22,8 +22,9 @@ func _ready():
 func _process(delta):
 	pass
 	
-func sprite_to_texture_rect(sprite: Sprite2D) -> TextureRect:
+func sprite_to_texture_rect(grid_node: GridNode) -> TextureRect:
 	var trect = TextureRect.new()
+	var sprite = grid_node.get_node("Tile")
 	trect.texture = sprite.texture
 	trect.modulate = sprite.modulate
 	return trect
