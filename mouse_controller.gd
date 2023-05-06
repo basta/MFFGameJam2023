@@ -12,6 +12,7 @@ func set_stamp(new_stamp):
 	stamp = new_stamp
 	print_debug("Selected stamp: ", new_stamp)
 	get_node("/root/Main/Grid").cursor.set_size(stamp.SIZE_X, stamp.SIZE_Y)
+	get_node("/root/Main/SourceGrid").cursor.set_size(stamp.SIZE_X, stamp.SIZE_Y)
 
 
 func reset():
@@ -21,10 +22,14 @@ func reset():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var grid_node: Grid = get_node("/root/Main/Grid")
+	var source_grid_node: Grid = get_node("/root/Main/SourceGrid")
+	var index_pos = grid_node.get_xy_from_global_pos(get_viewport().get_mouse_position())
 	if stamp:
-		grid_node.place_cursor(get_viewport().get_mouse_position())
+		grid_node.place_cursor(index_pos)
+		source_grid_node.place_cursor(index_pos)
 	else:
 		grid_node.cursor.disable()
+		source_grid_node.cursor.disable()
 
 
 func _input(event):

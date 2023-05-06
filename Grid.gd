@@ -61,8 +61,7 @@ func is_cursor_valid(index_pos: Vector2) -> bool:
 	return index_pos.y <= GRID_ROW_AMOUNT - cursor.SIZE_X && index_pos.x <= GRID_COL_AMOUNT - cursor.SIZE_X
 
 
-func place_cursor(global_pos: Vector2) -> void:
-	var index_pos = get_xy_from_global_pos(global_pos)
+func place_cursor(index_pos: Vector2) -> void:
 	if is_cursor_valid(index_pos):
 		cursor.visible = true
 		set_grid_position(index_pos.y, index_pos.x, cursor)
