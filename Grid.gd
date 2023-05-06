@@ -48,7 +48,8 @@ func init_grid(rows, cols):
 
 
 func set_grid_position(row, col, object):
-	object.position = Vector2(col * Global.SPRITE_SIZE, row * Global.SPRITE_SIZE)
+	var main_node = get_node("/root/Main")
+	object.position = Vector2(col * main_node.SPRITE_SIZE, row * main_node.SPRITE_SIZE)
 
 
 func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
@@ -68,8 +69,9 @@ func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
 
 
 func get_xy_from_global_pos(global_pos: Vector2) -> Vector2:
-	var offset = global_pos-position
-	return Vector2(int(offset.x / Global.SPRITE_SIZE), int(offset.y / Global.SPRITE_SIZE))
+	var main_node = get_node("/root/Main")
+	var offset = global_pos - position
+	return Vector2(int(offset.x / main_node.SPRITE_SIZE), int(offset.y / main_node.SPRITE_SIZE))
 
 
 func is_cursor_valid(index_pos: Vector2) -> bool:
