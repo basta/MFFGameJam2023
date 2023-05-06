@@ -53,4 +53,3 @@ func generate_ui_node():
 				trect.modulate = color
 				grid_ctr.add_child(trect)
 	return grid_ctr
-	
