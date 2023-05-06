@@ -5,11 +5,13 @@ class_name LevelLoader
 const COLORS = {
 	"B": Color("#000000"),
 	"C": Color("#00ffff"),
-	"G": Color("#008000"),
+	"G": Color("#808080"),
 	"O": Color("#ff8000"),
 	"R": Color("#ff0000"),
 	"W": Color("#ffffff"),
 	"Y": Color("#ffff00"),
+	"b": Color("#0000ff"),
+	"g": Color("#008000"),
 }
 
 static func parse_stamp(text: String) -> Array:
