@@ -1,5 +1,11 @@
 extends Node2D
 
+var SPRITE_TEXTURE_OFFSET = 4
+var SPRITE_TEXTURE_SIZE = 32
+var SPRITE_SIZE = SPRITE_TEXTURE_SIZE + SPRITE_TEXTURE_OFFSET
+
+const CONTENT_WIDTH = .8
+
 
 var level_names = [
 	"heart",
@@ -25,6 +31,9 @@ func load_level(level_int: int):
 	var level = LevelLoader.load_level(level_names[level_int])
 	var grid = level[0]
 	var stamps = level[1]
+	var viewport_size = get_viewport().size
+	# SPRITE_TEXTURE_SIZE = viewport_size.x * CONTENT_WIDTH / grid[0].size()
+	# SPRITE_SIZE = SPRITE_TEXTURE_SIZE + SPRITE_TEXTURE_OFFSET
 	load_grid(grid)
 	load_stamps(stamps)
 
