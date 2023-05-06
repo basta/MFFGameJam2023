@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnmwx8i3nlu34"]
-
-[ext_resource type="Script" path="res://CompletedGrid.gd" id="2_kg7dg"]
-
-[node name="LevelCompleted" type="Node2D"]
-
-[node name="CompletedGrid" type="Node2D" parent="."]
-script = ExtResource("2_kg7dg")
