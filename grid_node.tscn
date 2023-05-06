@@ -11,8 +11,9 @@ shader_parameter/old_color = Vector4(1, 0, 0, 1)
 shader_parameter/new_color = Vector4(0, 1, 0, 1)
 shader_parameter/progress = null
 
-[node name="GridNode" type="Node2D"]
+[node name="GridNode" type="Node2D" groups=["tiles"]]
 script = ExtResource("2_c0ray")
+transition_time = 0.65
 
 [node name="Border" type="Sprite2D" parent="."]
 visible = false

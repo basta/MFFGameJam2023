@@ -6,6 +6,8 @@ var SPRITE_SIZE = SPRITE_TEXTURE_SIZE + SPRITE_TEXTURE_OFFSET
 
 const CONTENT_WIDTH = .8
 
+signal level_loaded
+
 
 var level_names = [
 	"heart",
@@ -38,7 +40,7 @@ func load_level(level_int: int):
 	var viewport_size = get_viewport().size
 	load_grid(grid)
 	load_stamps(stamps)
-
+	level_loaded.emit()
 
 func is_level_solved() -> bool:
 	return $Grid.data_matrix == $SourceGrid.data_matrix

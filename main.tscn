@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0ltngmdndklm"]
+[gd_scene load_steps=15 format=3 uid="uid://d0ltngmdndklm"]
 
 [ext_resource type="PackedScene" uid="uid://b6uuv228q07xa" path="res://grid.tscn" id="1_dmvp1"]
 [ext_resource type="Script" path="res://main.gd" id="1_rl4kn"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://Cursor.gd" id="8_f18px"]
 [ext_resource type="Texture2D" uid="uid://d2qodh4len8kg" path="res://sprites/black.png" id="9_1nvnu"]
 [ext_resource type="Script" path="res://ResponsiveController.gd" id="10_yu41s"]
+[ext_resource type="AudioStream" uid="uid://cwdye0boyjsh0" path="res://audio/533146__mattfinarelli__drop-water.mp3" id="11_06t3d"]
+[ext_resource type="Script" path="res://SoundController.gd" id="11_yaikn"]
 
 [sub_resource type="Gradient" id="Gradient_kadeq"]
 offsets = PackedFloat32Array(0, 0.935484)
@@ -61,3 +63,12 @@ size_flags_vertical = 3
 
 [node name="ResponsiveController" type="Node" parent="."]
 script = ExtResource("10_yu41s")
+
+[node name="SoundController" type="Node" parent="."]
+script = ExtResource("11_yaikn")
+
+[node name="transition" type="AudioStreamPlayer2D" parent="SoundController"]
+stream = ExtResource("11_06t3d")
+volume_db = 10.0
+
+[connection signal="level_loaded" from="." to="SoundController" method="_on_main_level_loaded"]
