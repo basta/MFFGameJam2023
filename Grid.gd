@@ -55,14 +55,14 @@ func get_xy_from_global_pos(global_pos: Vector2) -> Vector2:
 	return Vector2(int(offset.x / Global.SPRITE_SIZE), int(offset.y / Global.SPRITE_SIZE))
 
 
+func is_cursor_valid(index_pos: Vector2) -> bool:
+	return index_pos.y <= GRID_ROW_AMOUNT - cursor.SIZE_X && index_pos.x <= GRID_COL_AMOUNT - cursor.SIZE_X
+
+
 func place_cursor(global_pos: Vector2) -> void:
-	var local_pos = get_xy_from_global_pos(global_pos)
-	var row = local_pos.y
-	var col = local_pos.x
-	print_debug(row, " ", sprite_matrix.size())
-	print_debug(col, " ", sprite_matrix[0].size())
-	if row < sprite_matrix.size() || col < sprite_matrix[0].size():
+	var index_pos = get_xy_from_global_pos(global_pos)
+	if is_cursor_valid(index_pos):
 		cursor.visible = true
-		set_grid_position(row, col, cursor)
+		set_grid_position(index_pos.y, index_pos.x, cursor)
 	else:
-		cursor.visible = false
+		cursor.disable()
