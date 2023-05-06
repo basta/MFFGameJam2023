@@ -63,4 +63,4 @@ func place_cursor(global_pos: Vector2) -> void:
 		cursor.visible = true
 		set_grid_position(row, col, cursor)
 	else:
-		cursor.visible = false
+		cursor.disable()

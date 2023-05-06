@@ -24,7 +24,7 @@ func _process(delta):
 	if stamp:
 		grid_node.place_cursor(get_viewport().get_mouse_position())
 	else:
-		grid_node.cursor.visible = false
+		grid_node.cursor.disable()
 
 
 func _input(event):
