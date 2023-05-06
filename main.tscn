@@ -14,7 +14,7 @@
 
 [sub_resource type="Gradient" id="Gradient_kadeq"]
 offsets = PackedFloat32Array(0, 0.935484)
-colors = PackedColorArray(0.8464, 0.907733, 0.92, 1, 0.6532, 0.875533, 0.92, 1)
+colors = PackedColorArray(0.8464, 0.907733, 0.92, 1, 0.886425, 0.906485, 0.994493, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xt322"]
 gradient = SubResource("Gradient_kadeq")
@@ -51,8 +51,6 @@ texture = SubResource("GradientTexture2D_xt322")
 [node name="SourceGrid" type="Node2D" parent="."]
 position = Vector2(23, 25)
 script = ExtResource("6_m47uo")
-GRID_ROW_AMOUNT = 8
-GRID_COL_AMOUNT = 8
 
 [node name="GridNode" parent="SourceGrid" instance=ExtResource("7_o6c33")]
 

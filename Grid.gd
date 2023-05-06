@@ -5,8 +5,8 @@ class_name Grid
 var grid_node_scene = preload("res://grid_node.tscn")
 
 
-@export var GRID_ROW_AMOUNT = 10
-@export var GRID_COL_AMOUNT = 10
+var GRID_ROW_AMOUNT = 0
+var GRID_COL_AMOUNT = 0
 
 var SPRITE_SIZE
 
@@ -23,6 +23,22 @@ var move_history: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	cursor = $"Cursor"
+	cursor.disable()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if Input.is_action_just_pressed("undo"):
+		undo()
+
+
+func init_grid(rows, cols):
+	GRID_ROW_AMOUNT = rows
+	GRID_COL_AMOUNT =  cols
+	# TODO: free all nodes when reseting level
+	# for i in get_children():
+	# 	queue_free()
 	for row in range(GRID_ROW_AMOUNT):
 		data_matrix.append([])
 		sprite_matrix.append([])
@@ -32,14 +48,6 @@ func _ready():
 			add_child(sprite)
 			data_matrix[row].append(Color.WHITE)
 			sprite_matrix[row].append(sprite)
-	cursor = $"Cursor"
-	cursor.disable()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_just_pressed("undo"):
-		undo()
 
 
 func set_grid_position(row, col, object):
