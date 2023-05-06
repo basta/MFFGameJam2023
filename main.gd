@@ -8,6 +8,7 @@ const CONTENT_WIDTH = .8
 
 
 var level_names = [
+	"neco",
 	"heart",
 	"tree",
 	"smiley",
