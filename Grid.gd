@@ -51,6 +51,12 @@ func set_grid_position(row, col, object):
 	var main_node = get_node("/root/Main")
 	object.position = Vector2(col * main_node.SPRITE_SIZE, row * main_node.SPRITE_SIZE)
 
+const HALF_YELLOW = Color("#ffff80")
+const MIXING = {
+	HALF_YELLOW: {
+		HALF_YELLOW: Color("#ffff00")
+	}
+}
 
 func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
 	print(pos_x, " ", pos_y)
@@ -62,8 +68,15 @@ func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
 			if stamp_matrix[row][col].a == 0:
 				continue
 			move.append([Vector2(pos_y+row, pos_x+col), sprite_matrix[pos_y+row][pos_x+col].color])
-			data_matrix[pos_y+row][pos_x+col] = stamp_matrix[row][col]
-			sprite_matrix[pos_y+row][pos_x+col].transition(stamp_matrix[row][col])
+			var current_color = data_matrix[pos_y+row][pos_x+col]
+			var new_color = stamp_matrix[row][col]
+			if current_color != Color("#ffffff") and MIXING.has(new_color):
+				if MIXING[new_color].has(current_color):
+					new_color = MIXING[new_color][current_color]
+				else:
+					continue
+			data_matrix[pos_y+row][pos_x+col] = new_color
+			sprite_matrix[pos_y+row][pos_x+col].transition(new_color)
 	if history:
 		move_history.append(move)
 

@@ -15,6 +15,7 @@ var level_names = [
 	"glass",
 	"apple",
 	"robot",
+	"banana",
 ]
 
 
@@ -42,4 +43,4 @@ func load_level(level_int: int):
 
 
 func _ready():
-	load_level(2)
+	load_level(7)
