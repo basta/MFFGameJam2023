@@ -20,6 +20,7 @@ var level_names = [
 	"robot",
 	"banana",
 	"potion",
+	"ketchup-mustard",
 ]
 
 
