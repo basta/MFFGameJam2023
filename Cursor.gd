@@ -31,6 +31,3 @@ func set_size(rows, cols):
 func disable():
 	visible = false
 
-
-func is_valid(row: int, col: int, max_row: int, max_col: int) -> bool:
-	return row <= max_row - SIZE_X && col <= max_col - SIZE_X

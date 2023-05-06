@@ -31,6 +31,6 @@ func _input(event):
 	if event.is_action_pressed("select"):
 		var grid_node: Grid = get_node("/root/Main/Grid")
 		var index_pos = grid_node.get_xy_from_global_pos(event.position)
-		if stamp:
+		if stamp && grid_node.is_cursor_valid(index_pos):
 			grid_node.apply_stamp(index_pos.x, index_pos.y, stamp.stamp_matrix)
 
