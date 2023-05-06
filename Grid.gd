@@ -15,7 +15,12 @@ var sprite_matrix : Array = []		# matrix of Sprite references
 
 var cursor: Node2D
 
-var move_history: Array = []
+var move_history: Array[Array] = []
+# [
+#  ...
+#  [[vec1, old_color, new_color], [vec2, old_color, new_color]...], # Move before last
+#  [[vec1, old_color, new_color], [vec2, old_color, new_color]...], # Last move
+# ]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -65,14 +70,15 @@ const MIXING = {
 }
 
 func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
-	print(pos_x, " ", pos_y)
+	print_debug(pos_x, " ", pos_y)
 	var move = [] # for logging for undo
 	for row in range(stamp_matrix.size()):
 		for col in range(stamp_matrix[0].size()):
-			if row + pos_y >= sprite_matrix.size() or col + pos_x >= sprite_matrix[0].size():
+			if row + pos_y >= GRID_ROW_AMOUNT or col + pos_x >= GRID_COL_AMOUNT:
 				continue 
 			if stamp_matrix[row][col].a == 0:
 				continue
+<<<<<<< HEAD
 			move.append([Vector2(pos_y+row, pos_x+col), sprite_matrix[pos_y+row][pos_x+col].color])
 			var current_color = data_matrix[pos_y+row][pos_x+col]
 			var new_color = stamp_matrix[row][col]
@@ -83,6 +89,14 @@ func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
 					continue
 			data_matrix[pos_y+row][pos_x+col] = new_color
 			sprite_matrix[pos_y+row][pos_x+col].transition(new_color)
+=======
+			move.append([
+				Vector2(pos_y+row, pos_x+col),
+				sprite_matrix[pos_y+row][pos_x+col].color,
+				stamp_matrix[row][col]])
+			data_matrix[pos_y+row][pos_x+col] = stamp_matrix[row][col]
+			sprite_matrix[pos_y+row][pos_x+col].transition(stamp_matrix[row][col])
+>>>>>>> 238568a (Animation WIP)
 	if history:
 		move_history.append(move)
 
