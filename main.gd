@@ -12,7 +12,7 @@ signal level_loaded
 
 
 var level_names = [
-	"neco",
+	"neco", # TODO: remove before publishing!
 	"heart",
 	"tree",
 	"smiley",
@@ -24,6 +24,7 @@ var level_names = [
 	"potion",
 	"ketchup-mustard",
 	"devil",
+	"pears",
 ]
 
 
