@@ -52,10 +52,16 @@ func set_grid_position(row, col, object):
 	object.position = Vector2(col * main_node.SPRITE_SIZE, row * main_node.SPRITE_SIZE)
 
 const HALF_YELLOW = Color("#ffff80")
+const HALF_MAGENTA = Color("#ff80ff")
 const MIXING = {
+	HALF_MAGENTA: {
+		HALF_MAGENTA: Color("#ff00ff"),
+		HALF_YELLOW: Color("#ff0000"),
+	},
 	HALF_YELLOW: {
-		HALF_YELLOW: Color("#ffff00")
-	}
+		HALF_MAGENTA: Color("#ff0000"),
+		HALF_YELLOW: Color("#ffff00"),
+	},
 }
 
 func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
