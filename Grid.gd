@@ -28,6 +28,7 @@ func _ready():
 			data_matrix[row].append(Color.WHITE)
 			sprite_matrix[row].append(sprite)
 	cursor = $"Cursor"
+	cursor.disable()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,7 +64,7 @@ func is_cursor_valid(index_pos: Vector2) -> bool:
 
 func place_cursor(index_pos: Vector2) -> void:
 	if is_cursor_valid(index_pos):
-		cursor.visible = true
+		cursor.enable()
 		set_grid_position(index_pos.y, index_pos.x, cursor)
 	else:
 		cursor.disable()
