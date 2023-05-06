@@ -39,8 +39,7 @@ static func load_level(level_name: String):
 		grid.append(row)
 	var stamps_file = FileAccess.open("levels/" + level_name + ".stamps", FileAccess.READ)
 	var stamps = []
-	for stamp_text in stamps_file.get_as_text().strip_edges().split("\n---\n"):
+	for stamp_text in stamps_file.get_as_text().strip_edges(left=false).split("\n---\n"):
 		stamps.append(parse_stamp(stamp_text))
-	# var stamps = Array(stamps_file.get_as_text().split("\n---\n")).map(parse_stamp)
 	# grid nad stamps is row, col
 	return [grid, stamps]
