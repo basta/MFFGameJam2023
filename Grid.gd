@@ -45,6 +45,7 @@ func apply_stamp(pos_x, pos_y, stamp_matrix):
 				data_matrix[pos_y+row][pos_x+col] = stamp_matrix[row][col]
 				sprite_matrix[pos_y+row][pos_x+col].modulate = stamp_matrix[row][col]
 
+
 func get_xy_from_global_pos(global_pos: Vector2) -> Vector2:
 	var offset = global_pos-position
 	return Vector2(int(offset.x/SPRITE_SIZE), int(offset.y/SPRITE_SIZE))
