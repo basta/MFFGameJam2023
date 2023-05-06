@@ -12,7 +12,7 @@ var stamps_data = [
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func create_stamps():
 	for i in range(stamps_data.size()):
 		var stamp = stamp_scene.instantiate()
 		stamp.set_matrix(stamps_data[i])

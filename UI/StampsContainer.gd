@@ -6,7 +6,7 @@ func reset_selection():
 		node.selected = false
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func load_stamp_buttons():
 	var stamps_ctr = get_node("/root/Main/Stamps")
 	for stamp in stamps_ctr.get_children():
 		var grid : GridContainer = stamp.generate_ui_node()
