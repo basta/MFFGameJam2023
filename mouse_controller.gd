@@ -25,7 +25,7 @@ func _process(delta):
 	var source_grid_node: Grid = get_node("/root/Main/SourceGrid")
 	if not grid_node || not source_grid_node:
 		return
-	var index_pos = grid_node.get_xy_from_global_pos(get_viewport().get_mouse_position())
+	var index_pos = grid_node.get_xy_from_global_pos(get_parent().get_node("Grid").get_global_mouse_position())
 	if stamp:
 		grid_node.place_cursor(index_pos)
 		source_grid_node.place_cursor(index_pos)
