@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://tm7ky5h0282p"]
+
+[ext_resource type="Texture2D" uid="uid://dab3osdig6ayp" path="res://sprites/tile_round.png" id="1_cng4h"]
+[ext_resource type="Shader" path="res://transition_test.gdshader" id="1_lftjg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mlfqb"]
+shader = ExtResource("1_lftjg")
+shader_parameter/old_color = Vector4(1, 0, 0, 1)
+shader_parameter/new_color = Vector4(0, 1, 0, 1)
+
+[node name="TransitionTest" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mlfqb")
+position = Vector2(33.1874, 31.1874)
+scale = Vector2(0.239399, 0.248327)
+texture = ExtResource("1_cng4h")

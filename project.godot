@@ -35,3 +35,4 @@ undo={
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
+anti_aliasing/quality/msaa_2d=2
