@@ -46,7 +46,7 @@ func is_level_solved() -> bool:
 
 
 func _ready():
-	load_level(1)
+	load_level(0)
 
 
 func _process(delta):
