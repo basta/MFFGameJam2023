@@ -10,7 +10,7 @@ func _ready():
 	var stamps_ctr = get_node("/root/Main/Stamps")
 	for stamp in stamps_ctr.get_children():
 		var grid : GridContainer = stamp.generate_ui_node()
-		var button_ctr : StampButtonContainer = button_scene.instantiate()
+		var button_ctr: StampButtonContainer = button_scene.instantiate()
 		add_child(button_ctr)
 		button_ctr.add_stamp_ui(grid)
 		button_ctr.stamp = stamp

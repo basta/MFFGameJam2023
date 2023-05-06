@@ -15,7 +15,7 @@ var stamps_data = [
 func _ready():
 	for i in range(stamps_data.size()):
 		var stamp = stamp_scene.instantiate()
-		stamp.stamp_matrix = stamps_data[i]
+		stamp.set_matrix(stamps_data[i])
 		stamps.append(stamp)
 		add_child(stamp)
 
