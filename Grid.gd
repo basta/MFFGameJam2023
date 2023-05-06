@@ -45,7 +45,7 @@ func apply_stamp(pos_x, pos_y, stamp_matrix) -> void:
 		for col in range(stamp_matrix[0].size()):
 			if row + pos_y >= sprite_matrix.size() or col + pos_x >= sprite_matrix[0].size():
 				continue 
-			if stamp_matrix[row][col] != null:
+			if stamp_matrix[row][col] != Color.TRANSPARENT:
 				data_matrix[pos_y+row][pos_x+col] = stamp_matrix[col][row]
 				sprite_matrix[pos_y+row][pos_x+col].modulate = stamp_matrix[col][row]
 
