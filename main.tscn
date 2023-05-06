@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0ltngmdndklm"]
+[gd_scene load_steps=8 format=3 uid="uid://d0ltngmdndklm"]
 
 [ext_resource type="PackedScene" uid="uid://b6uuv228q07xa" path="res://grid.tscn" id="1_dmvp1"]
 [ext_resource type="PackedScene" uid="uid://ghak2tcqi5hk" path="res://ui.tscn" id="2_3sxja"]
 [ext_resource type="Script" path="res://Stamps.gd" id="2_hcn6a"]
-[ext_resource type="Texture2D" uid="uid://bd78hs37wehk5" path="res://sprites/white.png" id="2_okgek"]
 [ext_resource type="Script" path="res://Stamp.gd" id="3_krino"]
 [ext_resource type="PackedScene" uid="uid://dk2rsewma5qbg" path="res://mouse_controller.tscn" id="3_prhy7"]
 
@@ -17,9 +16,6 @@ gradient = SubResource("Gradient_kadeq")
 [node name="Main" type="Node2D"]
 
 [node name="Grid" parent="." instance=ExtResource("1_dmvp1")]
-
-[node name="NodeTemplate" type="Sprite2D" parent="Grid"]
-texture = ExtResource("2_okgek")
 
 [node name="MouseController" parent="." instance=ExtResource("3_prhy7")]
 
@@ -43,3 +39,6 @@ z_index = -10
 position = Vector2(10, -44)
 scale = Vector2(19.7031, 11.2188)
 texture = SubResource("GradientTexture2D_xt322")
+
+[node name="SourceGrid" parent="." instance=ExtResource("1_dmvp1")]
+position = Vector2(573, 1)
