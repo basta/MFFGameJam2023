@@ -29,11 +29,13 @@ func set_matrix(matrix):
 	SIZE_Y = matrix.size()
 
 
+var small_tile_texture = preload("res://sprites/tile_round_small.svg")
 func sprite_to_texture_rect(grid_node: GridNode) -> TextureRect:
 	var trect = TextureRect.new()
 	var sprite = grid_node.get_node("Tile")
-	trect.texture = sprite.texture
+	trect.texture = small_tile_texture
 	trect.modulate = sprite.modulate
+	#trect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	return trect
 
 

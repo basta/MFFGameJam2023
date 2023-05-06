@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends HBoxContainer
 var button_scene = preload("res://UI/stamp_button.tscn")
 
 func reset_selection():

@@ -9,9 +9,8 @@ var BASE_SCALE: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	BASE_SCALE = float(Global.SPRITE_SIZE) / Global.SPRITE_TEXTURE_SIZE
-	print_debug(BASE_SCALE)
-	print_debug(Global.SPRITE_SIZE , Global.SPRITE_TEXTURE_SIZE)
+	var main_node = get_node("/root/Main")
+	BASE_SCALE = float(main_node.SPRITE_SIZE) / main_node.SPRITE_TEXTURE_SIZE
 	scale.x = BASE_SCALE
 	scale.y = BASE_SCALE
 

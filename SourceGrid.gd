@@ -15,4 +15,4 @@ func init_level(matrix):
 	data_matrix = matrix
 	for row in range(GRID_ROW_AMOUNT):
 		for col in range(GRID_COL_AMOUNT):
-			sprite_matrix[row][col].modulate = data_matrix[row][col]
+			sprite_matrix[row][col].transition(data_matrix[row][col])
