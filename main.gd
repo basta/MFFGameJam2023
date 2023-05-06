@@ -41,5 +41,13 @@ func load_level(level_int: int):
 	load_stamps(stamps)
 
 
+func is_level_solved() -> bool:
+	return $Grid.data_matrix == $SourceGrid.data_matrix
+
+
 func _ready():
-	load_level(2)
+	load_level(1)
+
+
+func _process(delta):
+	print_debug(is_level_solved())
