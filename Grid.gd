@@ -60,10 +60,9 @@ func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
 				continue 
 			if stamp_matrix[row][col].a == 0:
 				continue
-				
 			move.append([Vector2(pos_y+row, pos_x+col), sprite_matrix[pos_y+row][pos_x+col].modulate])
-			data_matrix[pos_y+row][pos_x+col] = stamp_matrix[col][row]
-			sprite_matrix[pos_y+row][pos_x+col].modulate = stamp_matrix[col][row]
+			data_matrix[pos_y+row][pos_x+col] = stamp_matrix[row][col]
+			sprite_matrix[pos_y+row][pos_x+col].modulate = stamp_matrix[row][col]
 	if history:
 		move_history.append(move)
 
@@ -74,7 +73,7 @@ func get_xy_from_global_pos(global_pos: Vector2) -> Vector2:
 
 
 func is_cursor_valid(index_pos: Vector2) -> bool:
-	return 0 <= index_pos.y && index_pos.y <= GRID_ROW_AMOUNT - cursor.SIZE_X && 0 <= index_pos.x && index_pos.x <= GRID_COL_AMOUNT - cursor.SIZE_X
+	return 0 <= index_pos.y && index_pos.y <= GRID_ROW_AMOUNT - cursor.SIZE_Y && 0 <= index_pos.x && index_pos.x <= GRID_COL_AMOUNT - cursor.SIZE_X
 
 
 func place_cursor(index_pos: Vector2) -> void:

@@ -11,8 +11,8 @@ func _ready():
 func set_stamp(new_stamp):
 	stamp = new_stamp
 	print_debug("Selected stamp: ", new_stamp)
-	get_node("/root/Main/Grid").cursor.set_size(stamp.SIZE_X, stamp.SIZE_Y)
-	get_node("/root/Main/SourceGrid").cursor.set_size(stamp.SIZE_X, stamp.SIZE_Y)
+	get_node("/root/Main/Grid").cursor.set_size(stamp.SIZE_Y, stamp.SIZE_X)
+	get_node("/root/Main/SourceGrid").cursor.set_size(stamp.SIZE_Y, stamp.SIZE_X)
 
 
 func reset():
