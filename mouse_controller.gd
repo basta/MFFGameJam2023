@@ -36,8 +36,11 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action_pressed("select"):
-		var grid_node: Grid = get_node("/root/Main/Grid")
+		var main_node: Main =  get_node("/root/Main")
+		var grid_node: Grid = main_node.get_node("Grid")
 		var index_pos = grid_node.get_xy_from_global_pos(get_parent().get_node("Grid").get_global_mouse_position())
 		if stamp && grid_node.is_cursor_valid(index_pos):
 			grid_node.apply_stamp(index_pos.x, index_pos.y, stamp.stamp_matrix)
+			if main_node.is_level_solved():
+				main_node.play_congrats_scene()
 
