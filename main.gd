@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var level_names = [
 	"heart",
 	"house",
@@ -29,4 +30,4 @@ func load_level(level_int: int):
 
 
 func _ready():
-	load_level(0)
+	load_level(1)

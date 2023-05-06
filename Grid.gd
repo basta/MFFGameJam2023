@@ -16,10 +16,7 @@ var sprite_matrix : Array = []		# matrix of Sprite references
 var cursor: Node2D
 
 var move_history: Array = []
-# [
-#  [vec1, old_color], [vec2, old_color]...], # Move before last
-#  [vec1, old_color], [vec2, old_color]...], # Last move
-# ]
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
