@@ -16,6 +16,8 @@ func reset():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$CurrentStamp.global_position = get_viewport().get_mouse_position()
+	var grid_node: Grid = get_node("/root/Main/Grid")
+	grid_node.show_cursor(get_viewport().get_mouse_position())
 	
 func _input(event):
 	if event.is_action_pressed("select"):
