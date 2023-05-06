@@ -78,8 +78,10 @@ func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
 				continue 
 			if stamp_matrix[row][col].a == 0:
 				continue
-<<<<<<< HEAD
-			move.append([Vector2(pos_y+row, pos_x+col), sprite_matrix[pos_y+row][pos_x+col].color])
+			move.append([
+				Vector2(pos_y+row, pos_x+col),
+				sprite_matrix[pos_y+row][pos_x+col].color,
+				stamp_matrix[row][col]])
 			var current_color = data_matrix[pos_y+row][pos_x+col]
 			var new_color = stamp_matrix[row][col]
 			if current_color != Color("#ffffff") and MIXING.has(new_color):
@@ -89,14 +91,6 @@ func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
 					continue
 			data_matrix[pos_y+row][pos_x+col] = new_color
 			sprite_matrix[pos_y+row][pos_x+col].transition(new_color)
-=======
-			move.append([
-				Vector2(pos_y+row, pos_x+col),
-				sprite_matrix[pos_y+row][pos_x+col].color,
-				stamp_matrix[row][col]])
-			data_matrix[pos_y+row][pos_x+col] = stamp_matrix[row][col]
-			sprite_matrix[pos_y+row][pos_x+col].transition(stamp_matrix[row][col])
->>>>>>> 238568a (Animation WIP)
 	if history:
 		move_history.append(move)
 
