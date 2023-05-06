@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cumsw8vadtwbf"]
+
+[ext_resource type="Shader" path="res://line.gdshader" id="1_m5r8q"]
+[ext_resource type="Texture2D" uid="uid://dj82u0fuq0sjs" path="res://albedo.png" id="2_ilvbx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hgfhx"]
+shader = ExtResource("1_m5r8q")
+
+[node name="Line2D" type="Line2D"]
+modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_hgfhx")
+position = Vector2(5, 26)
+points = PackedVector2Array(37, 16, 28, 0, 15, 9, 4, 12, 0, 0)
+texture = ExtResource("2_ilvbx")
+texture_mode = 2
+joint_mode = 2
+sharp_limit = 80.0
+antialiased = true

@@ -15,7 +15,6 @@ static func parse_stamp(text: String) -> Array:
 	var width = lines.map(func(line): return line.length()).max() / 2
 	return lines.map(func(line):
 		var row = []
-		print(line)
 		for i in line.length() / 2:
 			var command = line[2 * i]
 			var argument = line[2 * i + 1]
