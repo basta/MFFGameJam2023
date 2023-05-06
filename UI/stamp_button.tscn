@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://di5y7w32o46aq"]
+
+[ext_resource type="Script" path="res://UI/stamp_button_ctr.gd" id="1_olaae"]
+
+[node name="MarginContainer" type="MarginContainer"]
+theme_override_constants/margin_bottom = 40
+script = ExtResource("1_olaae")
