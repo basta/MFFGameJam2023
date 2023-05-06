@@ -5,3 +5,6 @@
 [node name="MarginContainer" type="MarginContainer"]
 theme_override_constants/margin_bottom = 40
 script = ExtResource("1_olaae")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

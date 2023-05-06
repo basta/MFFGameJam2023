@@ -1,12 +1,17 @@
 extends Node
 
+var stamp
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-func set_stamp(stamp):
-	$CurrentStamp.enabled = true
+func set_stamp(new_stamp):
+	stamp = new_stamp
+	print_debug("Selected stamp: ", new_stamp)
+
+func reset():
+	stamp = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
