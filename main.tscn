@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0ltngmdndklm"]
+[gd_scene load_steps=13 format=3 uid="uid://d0ltngmdndklm"]
 
 [ext_resource type="PackedScene" uid="uid://b6uuv228q07xa" path="res://grid.tscn" id="1_dmvp1"]
 [ext_resource type="Script" path="res://main.gd" id="1_rl4kn"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://SourceGrid.gd" id="6_m47uo"]
 [ext_resource type="Script" path="res://Cursor.gd" id="8_f18px"]
 [ext_resource type="Texture2D" uid="uid://d2qodh4len8kg" path="res://sprites/black.png" id="9_1nvnu"]
+[ext_resource type="Script" path="res://ResponsiveController.gd" id="10_yu41s"]
 
 [sub_resource type="Gradient" id="Gradient_kadeq"]
 offsets = PackedFloat32Array(0, 0.935484)
@@ -16,6 +17,8 @@ colors = PackedColorArray(0.8464, 0.907733, 0.92, 1, 0.886425, 0.906485, 0.99449
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xt322"]
 gradient = SubResource("Gradient_kadeq")
+width = 1
+height = 1
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rl4kn")
@@ -24,7 +27,7 @@ script = ExtResource("1_rl4kn")
 position = Vector2(554, 0)
 
 [node name="SourceGrid" type="Node2D" parent="."]
-position = Vector2(23, 25)
+position = Vector2(23, 0)
 script = ExtResource("6_m47uo")
 
 [node name="Cursor" type="Node2D" parent="SourceGrid"]
@@ -46,7 +49,7 @@ script = ExtResource("2_hcn6a")
 z_index = -10
 z_as_relative = false
 position = Vector2(580, 300)
-scale = Vector2(19.7031, 11.2188)
+scale = Vector2(500, 284.576)
 texture = SubResource("GradientTexture2D_xt322")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -55,3 +58,6 @@ follow_viewport_enabled = true
 [node name="UI" parent="CanvasLayer" instance=ExtResource("2_3sxja")]
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="ResponsiveController" type="Node" parent="."]
+script = ExtResource("10_yu41s")

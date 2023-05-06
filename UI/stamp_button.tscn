@@ -15,7 +15,7 @@ visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.211765, 0.211765, 0.211765, 1)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

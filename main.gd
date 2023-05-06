@@ -35,11 +35,9 @@ func load_level(level_int: int):
 	var grid = level[0]
 	var stamps = level[1]
 	var viewport_size = get_viewport().size
-	# SPRITE_TEXTURE_SIZE = viewport_size.x * CONTENT_WIDTH / grid[0].size()
-	# SPRITE_SIZE = SPRITE_TEXTURE_SIZE + SPRITE_TEXTURE_OFFSET
 	load_grid(grid)
 	load_stamps(stamps)
 
 
 func _ready():
-	load_level(2)
+	load_level(4)

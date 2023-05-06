@@ -47,8 +47,8 @@ func create_ui_grid() -> GridContainer:
 
 func generate_ui_node():
 	var grid_ctr = create_ui_grid()
-	for col in range(stamp_matrix[0].size()):
-		for row in range(stamp_matrix.size()):
+	for row in range(stamp_matrix.size()):
+		for col in range(stamp_matrix[0].size()):
 			if stamp_matrix[row][col] != null:
 				var color = stamp_matrix[row][col]
 				var trect = sprite_to_texture_rect(grid_node_scene.instantiate())
