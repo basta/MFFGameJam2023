@@ -1,9 +1,13 @@
 extends HBoxContainer
 var button_scene = preload("res://UI/stamp_button.tscn")
 
+func _ready():
+	reset_selection()
+
 func reset_selection():
 	for node in get_children():
 		node.selected = false
+		node.modulate = Color("ffffff", 0.6)
 
 # Called when the node enters the scene tree for the first time.
 func load_stamp_buttons():
