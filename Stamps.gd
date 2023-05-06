@@ -15,6 +15,7 @@ func _ready():
 		var stamp = stamp_scene.instantiate()
 		stamp.stamp_matrix = stamps_data[i]
 		stamps.append(stamp)
+		add_child(stamp)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

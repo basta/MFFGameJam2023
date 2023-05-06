@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://ghak2tcqi5hk"]
+[gd_scene load_steps=2 format=3 uid="uid://ghak2tcqi5hk"]
 
-[ext_resource type="PackedScene" uid="uid://di5y7w32o46aq" path="res://UI/stamp_UI.tscn" id="1_4h2od"]
 [ext_resource type="Script" path="res://UI/StampsContainer.gd" id="1_o7ect"]
 
 [node name="UI" type="MarginContainer"]
@@ -59,12 +58,3 @@ theme_override_constants/margin_right = 100
 [node name="Stamps" type="VBoxContainer" parent="HBoxContainer/Right"]
 layout_mode = 2
 script = ExtResource("1_o7ect")
-
-[node name="Stamp" parent="HBoxContainer/Right/Stamps" instance=ExtResource("1_4h2od")]
-layout_mode = 2
-
-[node name="Stamp2" parent="HBoxContainer/Right/Stamps" instance=ExtResource("1_4h2od")]
-layout_mode = 2
-
-[node name="Stamp3" parent="HBoxContainer/Right/Stamps" instance=ExtResource("1_4h2od")]
-layout_mode = 2

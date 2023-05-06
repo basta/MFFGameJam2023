@@ -6,5 +6,4 @@
 [node name="GridNode" type="Sprite2D"]
 texture = ExtResource("1_dvi2v")
 centered = false
-
 script = ExtResource("2_c0ray")

@@ -16,10 +16,6 @@
 [node name="NodeTemplate" type="Sprite2D" parent="Grid"]
 texture = ExtResource("2_okgek")
 
-[node name="UI" parent="." instance=ExtResource("2_3sxja")]
-offset_right = 1152.0
-offset_bottom = 647.0
-
 [node name="MouseController" parent="." instance=ExtResource("3_prhy7")]
 
 [node name="CurrentStamp" type="Node2D" parent="MouseController"]
@@ -33,3 +29,7 @@ script = ExtResource("3_krino")
 
 [node name="Stamps" type="Node2D" parent="."]
 script = ExtResource("2_hcn6a")
+
+[node name="UI" parent="." instance=ExtResource("2_3sxja")]
+offset_right = 1152.0
+offset_bottom = 647.0
