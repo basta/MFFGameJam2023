@@ -78,7 +78,6 @@ const MIXING = {
 }
 
 func apply_stamp(pos_x, pos_y, stamp_matrix, history=true, is_undoing=false) -> void:
-	print_debug(pos_x, " ", pos_y)
 	var move = [] # for logging for undo
 	for row in range(stamp_matrix.size()):
 		for col in range(stamp_matrix[0].size()):
