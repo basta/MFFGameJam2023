@@ -1,7 +1,7 @@
-extends Sprite2D
+extends Node2D
 
 
-@export var SPRITE_SIZE = 32
+@export var SPRITE_SIZE = 32 + 2
 
 
 func set_grid_position(row, col):
