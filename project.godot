@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="MFFGameJam2023"
-run/main_scene="res://main.tscn"
+run/main_scene="res://LevelSelect.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="res://global.gd"
+Global="*res://Global.gd"
 
 [input]
 

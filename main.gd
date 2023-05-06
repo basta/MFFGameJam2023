@@ -62,10 +62,9 @@ func play_congrats_scene():
 	completed_grid_node.move_history = $Grid.move_history
 	completed_grid_node.animate()
 
-
 func _ready():
-	load_level(11)
-
+	load_level(get_node("/root/Global").level_to_load)
+	$ResponsiveController.resized()
 
 func _process(delta):
 	pass
