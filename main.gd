@@ -65,5 +65,9 @@ func play_congrats_scene():
 
 
 func _ready():
-	load_level(7)
+	load_level(11)
+
+
+func _process(delta):
+	pass
 
