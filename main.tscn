@@ -1,13 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0ltngmdndklm"]
+[gd_scene load_steps=14 format=3 uid="uid://d0ltngmdndklm"]
 
 [ext_resource type="PackedScene" uid="uid://b6uuv228q07xa" path="res://grid.tscn" id="1_dmvp1"]
 [ext_resource type="Script" path="res://main.gd" id="1_rl4kn"]
 [ext_resource type="PackedScene" uid="uid://ghak2tcqi5hk" path="res://ui.tscn" id="2_3sxja"]
 [ext_resource type="Script" path="res://Stamps.gd" id="2_hcn6a"]
 [ext_resource type="Script" path="res://Stamp.gd" id="3_krino"]
-[ext_resource type="PackedScene" uid="uid://dcukjaf8del7j" path="res://mouse_controller.tscn" id="3_prhy7"]
+[ext_resource type="PackedScene" uid="uid://dk2rsewma5qbg" path="res://mouse_controller.tscn" id="3_prhy7"]
 [ext_resource type="Script" path="res://SourceGrid.gd" id="6_m47uo"]
-[ext_resource type="Script" path="res://ui.gd" id="7_bbtoe"]
 [ext_resource type="PackedScene" uid="uid://drfumsgqcnw3o" path="res://grid_node.tscn" id="7_o6c33"]
 [ext_resource type="Script" path="res://Cursor.gd" id="8_f18px"]
 [ext_resource type="Texture2D" uid="uid://d2qodh4len8kg" path="res://sprites/black.png" id="9_1nvnu"]
@@ -24,6 +23,7 @@ gradient = SubResource("Gradient_kadeq")
 script = ExtResource("1_rl4kn")
 
 [node name="Grid" parent="." instance=ExtResource("1_dmvp1")]
+position = Vector2(554, 33)
 
 [node name="MouseController" parent="." instance=ExtResource("3_prhy7")]
 
@@ -41,17 +41,18 @@ offset_left = -578.0
 offset_top = -324.0
 offset_right = 574.0
 offset_bottom = 323.0
-script = ExtResource("7_bbtoe")
 
 [node name="Background" type="Sprite2D" parent="Camera2D"]
 z_index = -10
-position = Vector2(10, -44)
+position = Vector2(2, -24)
 scale = Vector2(19.7031, 11.2188)
 texture = SubResource("GradientTexture2D_xt322")
 
 [node name="SourceGrid" type="Node2D" parent="."]
-position = Vector2(573, 1)
+position = Vector2(23, 25)
 script = ExtResource("6_m47uo")
+GRID_ROW_AMOUNT = 8
+GRID_COL_AMOUNT = 8
 
 [node name="GridNode" parent="SourceGrid" instance=ExtResource("7_o6c33")]
 

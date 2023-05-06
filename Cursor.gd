@@ -21,13 +21,18 @@ func _process(delta):
 	pass
 
 
-func set_size(rows, cols):
+func set_size(rows, cols) -> void:
 	SIZE_X = cols
 	SIZE_Y = rows
 	scale.x = BASE_SCALE * cols
 	scale.y = BASE_SCALE * rows
 
 
-func disable():
+func disable() -> void:
 	visible = false
+
+
+func enable() -> void:
+	visible = true
+
 

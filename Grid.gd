@@ -15,6 +15,11 @@ var sprite_matrix : Array = []		# matrix of Sprite references
 
 var cursor: Node2D
 
+var move_history: Array = []
+# [
+#  [vec1, old_color], [vec2, old_color]...], # Move before last
+#  [vec1, old_color], [vec2, old_color]...], # Last move
+# ]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,27 +33,34 @@ func _ready():
 			data_matrix[row].append(Color.WHITE)
 			sprite_matrix[row].append(sprite)
 	cursor = $"Cursor"
+	cursor.disable()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("undo"):
+		undo()
 
 
 func set_grid_position(row, col, object):
 	object.position = Vector2(col * Global.SPRITE_SIZE, row * Global.SPRITE_SIZE)
 
 
-func apply_stamp(pos_x, pos_y, stamp_matrix) -> void:
+func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
 	print(pos_x, " ", pos_y)
+	var move = [] # for logging for undo
 	for row in range(stamp_matrix.size()):
 		for col in range(stamp_matrix[0].size()):
 			if row + pos_y >= sprite_matrix.size() or col + pos_x >= sprite_matrix[0].size():
 				continue 
-			if stamp_matrix[row][col] != Color.TRANSPARENT:
-				data_matrix[pos_y+row][pos_x+col] = stamp_matrix[col][row]
-				sprite_matrix[pos_y+row][pos_x+col].modulate = stamp_matrix[col][row]
-
+			if stamp_matrix[row][col].a == 0:
+				continue
+				
+			move.append([Vector2(pos_y+row, pos_x+col), sprite_matrix[pos_y+row][pos_x+col].modulate])
+			data_matrix[pos_y+row][pos_x+col] = stamp_matrix[col][row]
+			sprite_matrix[pos_y+row][pos_x+col].modulate = stamp_matrix[col][row]
+	if history:
+		move_history.append(move)
 
 func get_xy_from_global_pos(global_pos: Vector2) -> Vector2:
 	var offset = global_pos-position
@@ -57,12 +69,16 @@ func get_xy_from_global_pos(global_pos: Vector2) -> Vector2:
 
 func is_cursor_valid(index_pos: Vector2) -> bool:
 	return index_pos.y <= GRID_ROW_AMOUNT - cursor.SIZE_X && index_pos.x <= GRID_COL_AMOUNT - cursor.SIZE_X
+	
+func undo():
+	var last_move = move_history.pop_back()
+	if last_move:
+		for change in last_move:
+			apply_stamp(change[0].y, change[0].x, [[change[1]]], false)
 
-
-func place_cursor(global_pos: Vector2) -> void:
-	var index_pos = get_xy_from_global_pos(global_pos)
+func place_cursor(index_pos: Vector2) -> void:
 	if is_cursor_valid(index_pos):
-		cursor.visible = true
+		cursor.enable()
 		set_grid_position(index_pos.y, index_pos.x, cursor)
 	else:
 		cursor.disable()

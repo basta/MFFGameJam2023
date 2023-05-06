@@ -19,4 +19,5 @@ texture = ExtResource("3_wv2v4")
 centered = false
 
 [node name="NodeTemplate" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("5_feb7n")
