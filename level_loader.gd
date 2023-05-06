@@ -3,10 +3,12 @@ extends Node
 class_name LevelLoader
 
 const COLORS = {
+	"B": Color("#000000"),
 	"C": Color("#00ffff"),
 	"G": Color("#008000"),
 	"O": Color("#ff8000"),
 	"R": Color("#ff0000"),
+	"W": Color("#ffffff"),
 	"Y": Color("#ffff00"),
 }
 
