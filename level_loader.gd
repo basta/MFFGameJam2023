@@ -21,11 +21,11 @@ static func parse_stamp(text: String) -> Array:
 			var command = line[2 * i]
 			var argument = line[2 * i + 1]
 			if command == " ":
-				row.append(Color(0, 0, 0, 0))
+				row.append(Color.TRANSPARENT)
 			elif command == "+":
 				row.append(COLORS[argument])
 		while row.size() < width:
-			row.append(Color(0, 0, 0, 0))
+			row.append(Color.TRANSPARENT)
 		return row
 	)
 
