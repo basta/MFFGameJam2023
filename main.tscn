@@ -40,6 +40,6 @@ offset_bottom = 323.0
 
 [node name="Background" type="Sprite2D" parent="Camera2D"]
 z_index = -10
-position = Vector2(26.5, 0)
+position = Vector2(10, -44)
 scale = Vector2(19.7031, 11.2188)
 texture = SubResource("GradientTexture2D_xt322")

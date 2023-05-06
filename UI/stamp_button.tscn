@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://di5y7w32o46aq"]
+[gd_scene load_steps=3 format=3 uid="uid://di5y7w32o46aq"]
 
 [ext_resource type="Script" path="res://UI/stamp_button_ctr.gd" id="1_olaae"]
+[ext_resource type="PackedScene" uid="uid://cumsw8vadtwbf" path="res://line.tscn" id="2_72647"]
 
 [node name="MarginContainer" type="MarginContainer"]
 theme_override_constants/margin_bottom = 40
 script = ExtResource("1_olaae")
+
+[node name="Line2D" parent="." instance=ExtResource("2_72647")]
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

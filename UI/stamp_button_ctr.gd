@@ -9,7 +9,10 @@ var selected
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Line2D.points = []
+	for i in 360:
+		var r = 50 + randf_range(-10, 10)
+		$Line2D.add_point(Vector2(cos(i*PI/180)*r, sin(i*PI/180)*r))
 
 func add_stamp_ui(node : Node):
 	add_child(node)
@@ -26,7 +29,7 @@ func clicked():
 func _input(event):
 	if event.is_action_pressed("select") and is_mouse_over:
 		clicked()
-		
+
 
 
 func _on_mouse_entered():
