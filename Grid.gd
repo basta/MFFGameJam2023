@@ -69,7 +69,7 @@ const MIXING = {
 	},
 }
 
-func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
+func apply_stamp(pos_x, pos_y, stamp_matrix, history=true, is_undoing=false) -> void:
 	print_debug(pos_x, " ", pos_y)
 	var move = [] # for logging for undo
 	for row in range(stamp_matrix.size()):
@@ -78,17 +78,18 @@ func apply_stamp(pos_x, pos_y, stamp_matrix, history=true) -> void:
 				continue 
 			if stamp_matrix[row][col].a == 0:
 				continue
+			var current_color = data_matrix[pos_y+row][pos_x+col]
+			var new_color = stamp_matrix[row][col]
+			if not is_undoing:
+				if current_color != Color("#ffffff") and MIXING.has(new_color):
+					if MIXING[new_color].has(current_color):
+						new_color = MIXING[new_color][current_color]
+					else:
+						continue
 			move.append([
 				Vector2(pos_y+row, pos_x+col),
 				sprite_matrix[pos_y+row][pos_x+col].color,
-				stamp_matrix[row][col]])
-			var current_color = data_matrix[pos_y+row][pos_x+col]
-			var new_color = stamp_matrix[row][col]
-			if current_color != Color("#ffffff") and MIXING.has(new_color):
-				if MIXING[new_color].has(current_color):
-					new_color = MIXING[new_color][current_color]
-				else:
-					continue
+				new_color])
 			data_matrix[pos_y+row][pos_x+col] = new_color
 			sprite_matrix[pos_y+row][pos_x+col].transition(new_color)
 	if history:
@@ -117,5 +118,5 @@ func undo():
 	var last_move = move_history.pop_back()
 	if last_move:
 		for change in last_move:
-			apply_stamp(change[0].y, change[0].x, [[change[1]]], false)
+			apply_stamp(change[0].y, change[0].x, [[change[1]]], false, true)
 

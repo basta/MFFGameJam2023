@@ -21,7 +21,8 @@ func transition(new_color: Color):
 	$Tile.material.set_shader_parameter("old_color", color)
 	$Tile.material.set_shader_parameter("new_color", new_color)
 	color = new_color
-	SoundController.tile_transitioned()
+	if SoundController != null:
+		SoundController.tile_transitioned()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var transition_progress = 0.
