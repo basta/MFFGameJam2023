@@ -1,7 +1,7 @@
 extends Node
 
 
-const TRANSITION_PLAYERS_N = 50
+const TRANSITION_PLAYERS_N = 20
 var transition_players = []
 var transition_players_states: Array[bool] = []
 var transition_scene = preload("res://transition.tscn")

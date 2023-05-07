@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 Global="*res://Global.gd"
 Soundtrack="*res://soundtrack.tscn"
 
+[display]
+
+window/size/mode=3
+
 [input]
 
 select={

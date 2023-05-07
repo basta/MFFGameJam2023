@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ghak2tcqi5hk"]
+[gd_scene load_steps=6 format=3 uid="uid://ghak2tcqi5hk"]
 
 [ext_resource type="Script" path="res://UI/StampsContainer.gd" id="1_o7ect"]
 [ext_resource type="Script" path="res://ui.gd" id="1_qcpu2"]
 [ext_resource type="Texture2D" uid="uid://bqhhw4ihax5st" path="res://sprites/button_menu.svg" id="2_ls81n"]
 [ext_resource type="Texture2D" uid="uid://hx2nmsvr5c3w" path="res://sprites/button_undo.svg" id="3_2e7oh"]
+[ext_resource type="Texture2D" uid="uid://b26fv3e3gxg1w" path="res://sprites/button_help.svg" id="4_2dofy"]
 
 [node name="UI" type="MarginContainer"]
 anchors_preset = 15
@@ -23,14 +24,51 @@ theme_override_constants/margin_top = 16
 [node name="HBoxContainer" type="HBoxContainer" parent="Top"]
 layout_mode = 2
 
-[node name="TeMenu" type="TextureButton" parent="Top/HBoxContainer"]
+[node name="MarginContainer" type="VBoxContainer" parent="Top/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TeMenu" type="TextureButton" parent="Top/HBoxContainer/MarginContainer"]
 layout_mode = 2
 tooltip_text = "Menu"
 texture_normal = ExtResource("2_ls81n")
 
-[node name="Undo2" type="TextureButton" parent="Top/HBoxContainer"]
+[node name="Label" type="Label" parent="Top/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 14
+text = "MENU"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="VBoxContainer" parent="Top/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Undo2" type="TextureButton" parent="Top/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 texture_normal = ExtResource("3_2e7oh")
+
+[node name="Label" type="Label" parent="Top/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 14
+text = "UNDO"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="VBoxContainer" parent="Top/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HELP" type="TextureButton" parent="Top/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("4_2dofy")
+
+[node name="Label" type="Label" parent="Top/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 14
+text = "HELP"
+horizontal_alignment = 1
 
 [node name="Bottom" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -42,5 +80,6 @@ size_flags_vertical = 8
 alignment = 1
 script = ExtResource("1_o7ect")
 
-[connection signal="pressed" from="Top/HBoxContainer/TeMenu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="Top/HBoxContainer/Undo2" to="." method="_on_undo_pressed"]
+[connection signal="pressed" from="Top/HBoxContainer/MarginContainer/TeMenu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Top/HBoxContainer/MarginContainer2/Undo2" to="." method="_on_undo_pressed"]
+[connection signal="pressed" from="Top/HBoxContainer/MarginContainer3/HELP" to="." method="_on_help_pressed"]

@@ -1,19 +1,47 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0ltngmdndklm"]
+[gd_scene load_steps=20 format=3 uid="uid://d0ltngmdndklm"]
 
 [ext_resource type="PackedScene" uid="uid://b6uuv228q07xa" path="res://grid.tscn" id="1_dmvp1"]
 [ext_resource type="Script" path="res://main.gd" id="1_rl4kn"]
 [ext_resource type="PackedScene" uid="uid://ghak2tcqi5hk" path="res://ui.tscn" id="2_3sxja"]
 [ext_resource type="Script" path="res://Stamps.gd" id="2_hcn6a"]
-[ext_resource type="PackedScene" uid="uid://pd1pd0gf0nc6" path="res://source_grid.tscn" id="3_fghfw"]
+[ext_resource type="PackedScene" path="res://source_grid.tscn" id="3_fghfw"]
 [ext_resource type="Script" path="res://Stamp.gd" id="3_krino"]
 [ext_resource type="PackedScene" uid="uid://dk2rsewma5qbg" path="res://mouse_controller.tscn" id="3_prhy7"]
-[ext_resource type="PackedScene" path="res://background.tscn" id="9_auwul"]
+[ext_resource type="PackedScene" uid="uid://57tok8241fhi" path="res://background.tscn" id="9_auwul"]
 [ext_resource type="Script" path="res://ResponsiveController.gd" id="10_yu41s"]
+[ext_resource type="Script" path="res://POPUP.gd" id="11_k0pm5"]
 [ext_resource type="Texture2D" uid="uid://bqhhw4ihax5st" path="res://sprites/button_menu.svg" id="11_k7eq0"]
+[ext_resource type="FontFile" uid="uid://bxc4g3tnvwfwe" path="res://Comme-VariableFont_wght.ttf" id="11_kp1n5"]
 [ext_resource type="Script" path="res://SoundController.gd" id="11_yaikn"]
-[ext_resource type="Texture2D" uid="uid://hx2nmsvr5c3w" path="res://sprites/button_undo.svg" id="12_62ovj"]
-[ext_resource type="Texture2D" uid="uid://c8m2wma3sfjk6" path="res://sprites/button_right.svg" id="13_cpffl"]
-[ext_resource type="PackedScene" path="res://transition.tscn" id="16_1d2o7"]
+[ext_resource type="Texture2D" uid="uid://baqll4a30l128" path="res://sprites/button_restart.svg" id="12_74egx"]
+[ext_resource type="Texture2D" uid="uid://cy5xnw2cfe6jc" path="res://sprites/tile_round_small.svg" id="12_v5p3m"]
+[ext_resource type="Texture2D" uid="uid://c8syd0m0n7slr" path="res://sprites/button_right.svg" id="13_cpffl"]
+[ext_resource type="PackedScene" uid="uid://bh6ffnlgx254d" path="res://transition.tscn" id="16_1d2o7"]
+
+[sub_resource type="Theme" id="Theme_3325g"]
+Label/colors/font_color = Color(0.2, 0.2, 0.2, 1)
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_left = 0
+MarginContainer/constants/margin_right = 0
+MarginContainer/constants/margin_top = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylfvm"]
+bg_color = Color(0.933333, 0.862745, 0.972549, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.2, 0.2, 0.2, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+expand_margin_left = 50.0
+expand_margin_top = 50.0
+expand_margin_right = 50.0
+expand_margin_bottom = 50.0
+shadow_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+shadow_offset = Vector2(1, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rl4kn")
@@ -40,6 +68,288 @@ follow_viewport_enabled = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="POPUP" type="CenterContainer" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 2
+script = ExtResource("11_k0pm5")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/POPUP"]
+layout_mode = 2
+theme = SubResource("Theme_3325g")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI/POPUP/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ylfvm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("11_kp1n5")
+theme_override_font_sizes/font_size = 22
+text = "HOTKEYS:
+     UNDO:
+          CTRL+Z
+          RIGHT CLICK
+     
+     STAMP SWITCH:
+           MOUSE WHEEL
+
+MIXED COLORS CAN-
+NOT OVERRIDE 
+FULL COLORS"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("11_kp1n5")
+theme_override_font_sizes/font_size = 22
+text = "COLOR MIXING:
+"
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer/HBoxContainer"]
+modulate = Color(0.501961, 1, 1, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="+" type="Label" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("11_kp1n5")
+theme_override_font_sizes/font_size = 22
+text = "+
+"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer/HBoxContainer"]
+modulate = Color(0.501961, 1, 1, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="=" type="Label" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("11_kp1n5")
+theme_override_font_sizes/font_size = 22
+text = "="
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer/HBoxContainer"]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer2/HBoxContainer"]
+modulate = Color(1, 0.501961, 1, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="+" type="Label" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("11_kp1n5")
+theme_override_font_sizes/font_size = 22
+text = "+
+"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer2/HBoxContainer"]
+modulate = Color(1, 0.501961, 1, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="=" type="Label" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("11_kp1n5")
+theme_override_font_sizes/font_size = 22
+text = "="
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer2/HBoxContainer"]
+modulate = Color(1, 0, 1, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="CenterContainer3" type="CenterContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer3"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer3/HBoxContainer"]
+modulate = Color(1, 0.984314, 0.623529, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="+" type="Label" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer3/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("11_kp1n5")
+theme_override_font_sizes/font_size = 22
+text = "+
+"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer3/HBoxContainer"]
+modulate = Color(1, 0.984314, 0.623529, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="=" type="Label" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer3/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("11_kp1n5")
+theme_override_font_sizes/font_size = 22
+text = "="
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer3/HBoxContainer"]
+modulate = Color(1, 0.870588, 0, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="CenterContainer4" type="CenterContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer4"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer4/HBoxContainer"]
+modulate = Color(0.501961, 1, 1, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="+" type="Label" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer4/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("11_kp1n5")
+theme_override_font_sizes/font_size = 22
+text = "+
+"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer4/HBoxContainer"]
+modulate = Color(1, 0.501961, 1, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="=" type="Label" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer4/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("11_kp1n5")
+theme_override_font_sizes/font_size = 22
+text = "="
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer4/HBoxContainer"]
+modulate = Color(0, 0, 1, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="CenterContainer5" type="CenterContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer5"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer5/HBoxContainer"]
+modulate = Color(0.501961, 1, 1, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="+" type="Label" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer5/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("11_kp1n5")
+theme_override_font_sizes/font_size = 22
+text = "+
+"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer5/HBoxContainer"]
+modulate = Color(1, 0.984314, 0.623529, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="=" type="Label" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer5/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("11_kp1n5")
+theme_override_font_sizes/font_size = 22
+text = "="
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer5/HBoxContainer"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="CenterContainer6" type="CenterContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer6"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer6/HBoxContainer"]
+modulate = Color(1, 0.984314, 0.623529, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="+" type="Label" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer6/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("11_kp1n5")
+theme_override_font_sizes/font_size = 22
+text = "+
+"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer6/HBoxContainer"]
+modulate = Color(1, 0.501961, 1, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
+[node name="=" type="Label" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer6/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("11_kp1n5")
+theme_override_font_sizes/font_size = 22
+text = "="
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI/POPUP/MarginContainer/PanelContainer/HBoxContainer/VBoxContainer2/CenterContainer6/HBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("12_v5p3m")
+stretch_mode = 2
+
 [node name="Celebration" type="MarginContainer" parent="CanvasLayer"]
 visible = false
 anchors_preset = -1
@@ -63,17 +373,47 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Celebration/BottomNav/CenterContainer"]
 layout_mode = 2
 
-[node name="TeMenu" type="TextureButton" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TeMenu" type="TextureButton" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("11_k7eq0")
 
-[node name="Undo2" type="TextureButton" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("12_62ovj")
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 14
+text = "MENU"
+horizontal_alignment = 1
 
-[node name="NextLevel" type="TextureButton" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Undo2" type="TextureButton" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("12_74egx")
+
+[node name="RESET" type="Label" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 14
+text = "RESET"
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="NextLevel" type="TextureButton" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 texture_normal = ExtResource("13_cpffl")
+
+[node name="Label" type="Label" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 14
+text = "NEXT"
+horizontal_alignment = 1
 
 [node name="ResponsiveController" type="Node" parent="."]
 script = ExtResource("10_yu41s")
@@ -85,6 +425,6 @@ script = ExtResource("11_yaikn")
 volume_db = 15.0
 
 [connection signal="level_loaded" from="." to="SoundController" method="_on_main_level_loaded"]
-[connection signal="pressed" from="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/TeMenu" to="CanvasLayer/UI" method="_on_menu_pressed"]
-[connection signal="pressed" from="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/Undo2" to="CanvasLayer/UI" method="_on_undo_pressed"]
-[connection signal="pressed" from="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/NextLevel" to="CanvasLayer/UI" method="_on_undo_pressed"]
+[connection signal="pressed" from="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/VBoxContainer/TeMenu" to="CanvasLayer/UI" method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/VBoxContainer2/Undo2" to="CanvasLayer/UI" method="_on_undo_pressed"]
+[connection signal="pressed" from="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/VBoxContainer3/NextLevel" to="CanvasLayer/UI" method="_on_next_level_pressed"]

@@ -84,3 +84,7 @@ func _process(delta):
 
 func to_menu():
 	get_tree().change_scene_to_file("res://LevelSelect.tscn")
+
+func next_level():
+	get_node("/root/Global").level_to_load += 1
+	get_tree().change_scene_to_file("res://main.tscn")

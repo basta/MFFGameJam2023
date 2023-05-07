@@ -86,4 +86,4 @@ func calculate_grid_start_right(grid: Grid):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	resized()
