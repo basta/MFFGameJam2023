@@ -33,7 +33,7 @@ func resized():
 
 
 func center_celebration_if_exists():
-	if get_node("/root/Main/CompletedGrid") != null:
+	if get_node_or_null("/root/Main/CompletedGrid") != null:
 		var completed_grid_node = get_node("/root/Main/CompletedGrid")
 		var grid_size = calculate_grid_size(completed_grid_node)/2
 		var view_size = get_viewport().size / 2.
