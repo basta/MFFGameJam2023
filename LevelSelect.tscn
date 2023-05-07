@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://LevelSelect.gd" id="1_j5ncn"]
 [ext_resource type="Script" path="res://UI/LevelSelectContainer.gd" id="1_uplp3"]
 [ext_resource type="Texture2D" uid="uid://cry1e08wws1fl" path="res://sprites/background_texture.tres" id="2_ut7et"]
-[ext_resource type="PackedScene" path="res://source_grid.tscn" id="4_wk1yy"]
+[ext_resource type="PackedScene" uid="uid://pd1pd0gf0nc6" path="res://source_grid.tscn" id="4_wk1yy"]
 
 [node name="Main" type="Control"]
 layout_mode = 3

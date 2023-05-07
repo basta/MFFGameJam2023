@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://main.gd" id="1_rl4kn"]
 [ext_resource type="PackedScene" uid="uid://ghak2tcqi5hk" path="res://ui.tscn" id="2_3sxja"]
 [ext_resource type="Script" path="res://Stamps.gd" id="2_hcn6a"]
-[ext_resource type="PackedScene" path="res://source_grid.tscn" id="3_fghfw"]
+[ext_resource type="PackedScene" uid="uid://pd1pd0gf0nc6" path="res://source_grid.tscn" id="3_fghfw"]
 [ext_resource type="Script" path="res://Stamp.gd" id="3_krino"]
 [ext_resource type="PackedScene" uid="uid://dk2rsewma5qbg" path="res://mouse_controller.tscn" id="3_prhy7"]
 [ext_resource type="PackedScene" uid="uid://57tok8241fhi" path="res://background.tscn" id="9_auwul"]
