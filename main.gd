@@ -59,9 +59,11 @@ func play_congrats_scene():
 	$CanvasLayer.hide()
 	var completed_grid_node = load("res://completed_grid.tscn").instantiate()
 	add_child(completed_grid_node)
+	
 	completed_grid_node.init_grid($Grid.GRID_ROW_AMOUNT, $Grid.GRID_COL_AMOUNT)
 	completed_grid_node.move_history = $Grid.move_history
 	completed_grid_node.animate()
+	
 
 func _ready():
 	load_level(get_node("/root/Global").level_to_load)

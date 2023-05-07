@@ -22,10 +22,18 @@ func resized():
 	left_grid.position = calculate_grid_start_left(left_grid)
 	right_grid.position = calculate_grid_start_right(right_grid)
 	resize_background()
+	center_celebration_if_exists()
 
 #func adjust_sprite_size():
 #	var SPRITE_TEXTURE_SIZE = viewport_size.x * CONTENT_WIDTH / grid[0].size()
 #	var SPRITE_SIZE = SPRITE_TEXTURE_SIZE + SPRITE_TEXTURE_OFFSET
+
+func center_celebration_if_exists():
+	if get_node("/root/Main/CompletedGrid") != null:
+		var completed_grid_node = get_node("/root/Main/CompletedGrid")
+		var grid_size = calculate_grid_size(completed_grid_node)/2
+		var view_size = get_viewport().size / 2.
+		completed_grid_node.position = view_size - grid_size
 
 func resize_background():
 	$"../Background".scale = get_viewport().size / 2000.

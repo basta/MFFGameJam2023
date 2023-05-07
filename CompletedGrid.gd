@@ -12,6 +12,7 @@ func _process(delta):
 
 
 func animate():
+	$"../ResponsiveController".resized()
 	print_debug("CONGRATS!")
 	for move in move_history:
 		for change in move:
