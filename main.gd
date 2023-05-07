@@ -26,6 +26,7 @@ const level_names = [
 	"devil",
 	"pears",
 	"flower",
+	"car",
 ]
 
 
@@ -36,6 +37,7 @@ func load_grid(grid):
 
 
 func load_stamps(stamps):
+	print($Stamps)
 	$Stamps.stamps_data = stamps
 	$Stamps.create_stamps()
 	$CanvasLayer/UI.show_stamps()
@@ -48,6 +50,7 @@ func load_level(level_int: int):
 	var viewport_size = get_viewport().size
 	load_grid(grid)
 	load_stamps(stamps)
+	$MouseController.stamps = $Stamps
 	level_loaded.emit()
 
 

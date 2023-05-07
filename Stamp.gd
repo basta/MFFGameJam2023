@@ -32,6 +32,7 @@ func set_matrix(matrix):
 var small_tile_texture = preload("res://sprites/tile_round_small.svg")
 var small_tile_border_texture = preload("res://sprites/tile_round_small_border.svg")
 
+
 func sprite_to_texture_rect(grid_node: GridNode) -> TextureRect:
 	var trect = TextureRect.new()
 	var sprite = grid_node.get_node("Tile")

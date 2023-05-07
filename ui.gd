@@ -1,8 +1,8 @@
 extends MarginContainer
 
+
 func show_stamps():
 	$Bottom/HBoxContainer.load_stamp_buttons()
-	
 
 
 func _on_menu_pressed():
