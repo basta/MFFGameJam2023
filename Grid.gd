@@ -115,12 +115,19 @@ func is_cursor_valid(index_pos: Vector2) -> bool:
 	return 0 <= index_pos.y && index_pos.y <= GRID_ROW_AMOUNT - cursor.SIZE_Y && 0 <= index_pos.x && index_pos.x <= GRID_COL_AMOUNT - cursor.SIZE_X
 
 
+func is_cursor_visible(index_pos: Vector2) -> bool:
+	return -cursor.SIZE_Y < index_pos.y && index_pos.y <= GRID_ROW_AMOUNT - 1 && -cursor.SIZE_X < index_pos.x && index_pos.x <= GRID_COL_AMOUNT - 1
+	
+
+
 func place_cursor(index_pos: Vector2) -> void:
 	if is_cursor_valid(index_pos):
 		cursor.enable()
-		set_grid_position(index_pos.y, index_pos.x, cursor)
+	elif is_cursor_visible(index_pos):
+		cursor.show_err()
 	else:
 		cursor.disable()
+	set_grid_position(index_pos.y, index_pos.x, cursor)
 
 
 func undo():

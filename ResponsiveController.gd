@@ -60,10 +60,11 @@ func calculate_grid_size(grid: Grid) -> Vector2:
 
 
 func calculate_margins():
-	var grid_height = left_grid.GRID_ROW_AMOUNT * main_node.SPRITE_SIZE
+	var grid_size = Vector2(left_grid.GRID_COL_AMOUNT * main_node.SPRITE_SIZE, left_grid.GRID_ROW_AMOUNT * main_node.SPRITE_SIZE)
 	var stamps_height = stamps_ui.size.y
-	var viewport_height = get_viewport().size.y
-	GRID_MARGIN_TOP = clamp((viewport_height - grid_height - stamps_height) * .5, 20, 300)
+	var viewport_size = get_viewport().size
+	GRID_MARGIN_TOP = clamp((viewport_size.y - grid_size.y - stamps_height) * .5, 20, 250)
+	GRID_MARGIN = clamp((viewport_size.x - 2 * grid_size.x) / 4, 50, 200)
 
 
 func calculate_grid_start_left(grid: Grid):
