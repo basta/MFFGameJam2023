@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3xokbivwat6x"]
+
+[ext_resource type="Texture2D" uid="uid://pg0qllt0b3gx" path="res://sprites/button_level_texture.svg" id="1_cw8pc"]
+[ext_resource type="Script" path="res://UI/LevelSelectButton.gd" id="1_kkl0j"]
+
+[node name="TextureButton" type="TextureButton"]
+offset_right = 64.8
+offset_bottom = 64.8
+texture_normal = ExtResource("1_cw8pc")
+script = ExtResource("1_kkl0j")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 64.8
+offset_bottom = 64.8
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 32
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

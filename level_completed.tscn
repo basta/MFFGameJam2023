@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqr6fno0a2ihj"]
+
+[ext_resource type="Script" path="res://CompletedGrid.gd" id="2_kg7dg"]
+
+[node name="LevelCompleted" type="Node2D"]
+
+[node name="CompletedGrid" type="Node2D" parent="."]
+script = ExtResource("2_kg7dg")
+
+[node name="AnimationTimer" type="Timer" parent="CompletedGrid"]
+wait_time = 0.63
+
+[connection signal="timeout" from="CompletedGrid/AnimationTimer" to="CompletedGrid" method="_on_animation_timer_timeout"]

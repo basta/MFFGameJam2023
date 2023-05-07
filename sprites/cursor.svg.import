@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sdohpchm4nak"
-path="res://.godot/imported/melon.png-e2cbef2bc780091acde2889d5ead395e.ctex"
+uid="uid://dalm8mfyw62rc"
+path="res://.godot/imported/cursor.svg-767579528ae61e19f7bba1a320cadc8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/melon.png"
-dest_files=["res://.godot/imported/melon.png-e2cbef2bc780091acde2889d5ead395e.ctex"]
+source_file="res://sprites/cursor.svg"
+dest_files=["res://.godot/imported/cursor.svg-767579528ae61e19f7bba1a320cadc8b.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=6.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

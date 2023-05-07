@@ -30,12 +30,13 @@ func set_matrix(matrix):
 
 
 var small_tile_texture = preload("res://sprites/tile_round_small.svg")
+var small_tile_border_texture = preload("res://sprites/tile_round_small_border.svg")
+
 func sprite_to_texture_rect(grid_node: GridNode) -> TextureRect:
 	var trect = TextureRect.new()
 	var sprite = grid_node.get_node("Tile")
 	trect.texture = small_tile_texture
 	trect.modulate = sprite.modulate
-	#trect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	return trect
 
 
@@ -53,5 +54,10 @@ func generate_ui_node():
 				var color = stamp_matrix[row][col]
 				var trect = sprite_to_texture_rect(grid_node_scene.instantiate())
 				trect.modulate = color
-				grid_ctr.add_child(trect)
+				var trect_border = TextureRect.new()
+				trect_border.texture = small_tile_border_texture
+				var margin_container = MarginContainer.new()
+				margin_container.add_child(trect)
+				margin_container.add_child(trect_border)
+				grid_ctr.add_child(margin_container)
 	return grid_ctr

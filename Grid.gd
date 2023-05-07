@@ -41,6 +41,8 @@ func init_grid(rows, cols):
 	# TODO: free all nodes when reseting level
 	# for i in get_children():
 	# 	queue_free()
+	data_matrix = []
+	sprite_matrix = []
 	for row in range(GRID_ROW_AMOUNT):
 		data_matrix.append([])
 		sprite_matrix.append([])
@@ -78,7 +80,6 @@ const MIXING = {
 }
 
 func apply_stamp(pos_x, pos_y, stamp_matrix, history=true, is_undoing=false) -> void:
-	print_debug(pos_x, " ", pos_y)
 	var move = [] # for logging for undo
 	for row in range(stamp_matrix.size()):
 		for col in range(stamp_matrix[0].size()):

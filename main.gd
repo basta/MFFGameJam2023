@@ -50,6 +50,7 @@ func load_level(level_int: int):
 	load_stamps(stamps)
 	level_loaded.emit()
 
+
 func is_level_solved() -> bool:
 	return $Grid.data_matrix == $SourceGrid.data_matrix
 
@@ -60,15 +61,20 @@ func play_congrats_scene():
 	$CanvasLayer.hide()
 	var completed_grid_node = load("res://completed_grid.tscn").instantiate()
 	add_child(completed_grid_node)
+	
 	completed_grid_node.init_grid($Grid.GRID_ROW_AMOUNT, $Grid.GRID_COL_AMOUNT)
 	completed_grid_node.move_history = $Grid.move_history
 	completed_grid_node.animate()
+	
 
 
 func _ready():
-	load_level(11)
+	load_level(get_node("/root/Global").level_to_load)
+	$ResponsiveController.resized()
 
 
 func _process(delta):
 	pass
 
+func to_menu():
+	get_tree().change_scene_to_file("res://LevelSelect.tscn")

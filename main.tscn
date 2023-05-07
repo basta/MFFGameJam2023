@@ -14,14 +14,14 @@
 [ext_resource type="Script" path="res://SoundController.gd" id="11_yaikn"]
 
 [sub_resource type="Gradient" id="Gradient_uthc6"]
-colors = PackedColorArray(0.933333, 0.933333, 0.933333, 1, 1, 0.93, 0.934667, 1)
+colors = PackedColorArray(0.941176, 0.941176, 0.941176, 1, 0.93456, 0.8316, 0.99, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_41gcn"]
 gradient = SubResource("Gradient_uthc6")
 width = 2000
 height = 2000
 fill_from = Vector2(0.201835, 0)
-fill_to = Vector2(0.844037, 1)
+fill_to = Vector2(0.729358, 0.720183)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rl4kn")
