@@ -123,10 +123,8 @@ func is_cursor_visible(index_pos: Vector2) -> bool:
 func place_cursor(index_pos: Vector2) -> void:
 	if is_cursor_valid(index_pos):
 		cursor.enable()
-	elif is_cursor_visible(index_pos):
-		cursor.show_err()
 	else:
-		cursor.disable()
+		cursor.show_err(index_pos, Vector2(GRID_ROW_AMOUNT, GRID_COL_AMOUNT))
 	set_grid_position(index_pos.y, index_pos.x, cursor)
 
 
