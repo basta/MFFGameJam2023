@@ -7,6 +7,10 @@ var BASE_SCALE: float
 @export var SIZE_Y: int
 
 
+var cursor_texture = load("res://sprites/cursor.svg")
+var cursor_err_texture = load("res://sprites/cursor_err.svg")
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var main_node = get_node("/root/Main")
@@ -32,12 +36,14 @@ func disable() -> void:
 
 
 func show_err() -> void:
-	modulate = Color(1, .2, .2, .8)
+	for child in get_children():
+		child.texture = cursor_err_texture
 	visible = true
 
 
 func enable() -> void:
-	modulate = Color("333333")
+	for child in get_children():
+		child.texture = cursor_texture
 	visible = true
 
 

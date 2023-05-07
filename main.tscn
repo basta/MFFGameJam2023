@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://bqhhw4ihax5st" path="res://sprites/button_menu.svg" id="11_k7eq0"]
 [ext_resource type="Script" path="res://SoundController.gd" id="11_yaikn"]
 [ext_resource type="Texture2D" uid="uid://hx2nmsvr5c3w" path="res://sprites/button_undo.svg" id="12_62ovj"]
-[ext_resource type="Texture2D" uid="uid://c8syd0m0n7slr" path="res://sprites/button_right.svg" id="13_cpffl"]
-[ext_resource type="PackedScene" uid="uid://bh6ffnlgx254d" path="res://transition.tscn" id="16_1d2o7"]
+[ext_resource type="Texture2D" uid="uid://c8m2wma3sfjk6" path="res://sprites/button_right.svg" id="13_cpffl"]
+[ext_resource type="PackedScene" path="res://transition.tscn" id="16_1d2o7"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rl4kn")
@@ -31,8 +31,10 @@ script = ExtResource("6_m47uo")
 script = ExtResource("8_f18px")
 
 [node name="Sprite" type="Sprite2D" parent="SourceGrid/Cursor"]
+scale = Vector2(0.167, 0.167)
 texture = ExtResource("9_1nvnu")
 centered = false
+offset = Vector2(-13, -12)
 
 [node name="MouseController" parent="." instance=ExtResource("3_prhy7")]
 
