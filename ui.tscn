@@ -34,7 +34,6 @@ texture_normal = ExtResource("3_2e7oh")
 [node name="Bottom" type="MarginContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_constants/margin_right = 100
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Bottom"]
 layout_mode = 2
