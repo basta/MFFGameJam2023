@@ -71,7 +71,6 @@ func play_congrats_scene():
 	completed_grid_node.init_grid($Grid.GRID_ROW_AMOUNT, $Grid.GRID_COL_AMOUNT)
 	completed_grid_node.move_history = $Grid.move_history
 	completed_grid_node.animate()
-	
 
 
 func _ready():
@@ -81,6 +80,7 @@ func _ready():
 
 func _process(delta):
 	pass
+
 
 func to_menu():
 	get_tree().change_scene_to_file("res://LevelSelect.tscn")

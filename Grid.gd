@@ -79,6 +79,7 @@ const MIXING = {
 	},
 }
 
+
 func apply_stamp(pos_x, pos_y, stamp_matrix, history=true, is_undoing=false) -> void:
 	var move = [] # for logging for undo
 	for row in range(stamp_matrix.size()):
@@ -117,7 +118,6 @@ func is_cursor_valid(index_pos: Vector2) -> bool:
 
 func is_cursor_visible(index_pos: Vector2) -> bool:
 	return -cursor.SIZE_Y < index_pos.y && index_pos.y <= GRID_ROW_AMOUNT - 1 && -cursor.SIZE_X < index_pos.x && index_pos.x <= GRID_COL_AMOUNT - 1
-	
 
 
 func place_cursor(index_pos: Vector2) -> void:

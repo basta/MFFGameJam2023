@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://pd1pd0gf0nc6"]
+
+[ext_resource type="Script" path="res://SourceGrid.gd" id="1_3jvo3"]
+[ext_resource type="Script" path="res://Cursor.gd" id="2_ykpxr"]
+[ext_resource type="Texture2D" uid="uid://d2qodh4len8kg" path="res://sprites/black.png" id="3_ixmde"]
+
+[node name="SourceGrid" type="Node2D"]
+position = Vector2(23, 0)
+script = ExtResource("1_3jvo3")
+
+[node name="Cursor" type="Node2D" parent="."]
+script = ExtResource("2_ykpxr")
+
+[node name="Sprite" type="Sprite2D" parent="Cursor"]
+scale = Vector2(0.167, 0.167)
+texture = ExtResource("3_ixmde")
+centered = false
+offset = Vector2(-13, -12)

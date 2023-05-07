@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://djt5b2oi83x82"]
+[gd_scene load_steps=5 format=3 uid="uid://djt5b2oi83x82"]
 
 [ext_resource type="Script" path="res://LevelSelect.gd" id="1_j5ncn"]
 [ext_resource type="Script" path="res://UI/LevelSelectContainer.gd" id="1_uplp3"]
 [ext_resource type="Texture2D" uid="uid://cry1e08wws1fl" path="res://sprites/background_texture.tres" id="2_ut7et"]
+[ext_resource type="PackedScene" uid="uid://pd1pd0gf0nc6" path="res://source_grid.tscn" id="4_wk1yy"]
 
-[node name="LevelSelect" type="Control"]
+[node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,11 +25,13 @@ texture = ExtResource("2_ut7et")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -39,3 +42,5 @@ theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
 columns = 4
 script = ExtResource("1_uplp3")
+
+[node name="SourceGrid" parent="." instance=ExtResource("4_wk1yy")]

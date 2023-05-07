@@ -9,7 +9,6 @@ var GRID_MARGIN_TOP = 180;
 var STAMPS_MARGIN_BOT = 10;
 var main_node;
 
-
 func _ready():
 	main_node = get_node("/root/Main")
 	get_tree().get_root().connect("size_changed", resized)

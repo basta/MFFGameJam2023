@@ -1,14 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://d0ltngmdndklm"]
+[gd_scene load_steps=15 format=3 uid="uid://d0ltngmdndklm"]
 
 [ext_resource type="PackedScene" uid="uid://b6uuv228q07xa" path="res://grid.tscn" id="1_dmvp1"]
 [ext_resource type="Script" path="res://main.gd" id="1_rl4kn"]
 [ext_resource type="PackedScene" uid="uid://ghak2tcqi5hk" path="res://ui.tscn" id="2_3sxja"]
 [ext_resource type="Script" path="res://Stamps.gd" id="2_hcn6a"]
+[ext_resource type="PackedScene" uid="uid://pd1pd0gf0nc6" path="res://source_grid.tscn" id="3_fghfw"]
 [ext_resource type="Script" path="res://Stamp.gd" id="3_krino"]
 [ext_resource type="PackedScene" uid="uid://dk2rsewma5qbg" path="res://mouse_controller.tscn" id="3_prhy7"]
-[ext_resource type="Script" path="res://SourceGrid.gd" id="6_m47uo"]
-[ext_resource type="Script" path="res://Cursor.gd" id="8_f18px"]
-[ext_resource type="Texture2D" uid="uid://d2qodh4len8kg" path="res://sprites/black.png" id="9_1nvnu"]
 [ext_resource type="PackedScene" path="res://background.tscn" id="9_auwul"]
 [ext_resource type="Script" path="res://ResponsiveController.gd" id="10_yu41s"]
 [ext_resource type="Texture2D" uid="uid://bqhhw4ihax5st" path="res://sprites/button_menu.svg" id="11_k7eq0"]
@@ -23,18 +21,7 @@ script = ExtResource("1_rl4kn")
 [node name="Grid" parent="." instance=ExtResource("1_dmvp1")]
 position = Vector2(554, 0)
 
-[node name="SourceGrid" type="Node2D" parent="."]
-position = Vector2(23, 0)
-script = ExtResource("6_m47uo")
-
-[node name="Cursor" type="Node2D" parent="SourceGrid"]
-script = ExtResource("8_f18px")
-
-[node name="Sprite" type="Sprite2D" parent="SourceGrid/Cursor"]
-scale = Vector2(0.167, 0.167)
-texture = ExtResource("9_1nvnu")
-centered = false
-offset = Vector2(-13, -12)
+[node name="SourceGrid" parent="." instance=ExtResource("3_fghfw")]
 
 [node name="MouseController" parent="." instance=ExtResource("3_prhy7")]
 
