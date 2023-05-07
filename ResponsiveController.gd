@@ -3,8 +3,10 @@ extends Node
 var tile_size: float;
 var left_grid: Grid;
 var right_grid: Grid;
+var stamps_ui
 var GRID_MARGIN = 50;
 var GRID_MARGIN_TOP = 180;
+var STAMPS_MARGIN_BOT = 10;
 var main_node;
 
 
@@ -14,6 +16,7 @@ func _ready():
 	tile_size = get_node("/root/Main").SPRITE_SIZE
 	left_grid = $"../SourceGrid"
 	right_grid = $"../Grid"
+	stamps_ui = $"../CanvasLayer/UI/Bottom/HBoxContainer"
 	resized()
 
 
@@ -25,11 +28,6 @@ func resized():
 	right_grid.position = calculate_grid_start_right(right_grid)
 	resize_background()
 	center_celebration_if_exists()
-
-
-#func adjust_sprite_size():
-#	var SPRITE_TEXTURE_SIZE = viewport_size.x * CONTENT_WIDTH / grid[0].size()
-#	var SPRITE_SIZE = SPRITE_TEXTURE_SIZE + SPRITE_TEXTURE_OFFSET
 
 
 func center_celebration_if_exists():
@@ -52,10 +50,16 @@ func calculate_grid_size(grid: Grid) -> Vector2:
 	)
 
 
+#func calculate_tile_size():
+#	var SPRITE_TEXTURE_SIZE = viewport_size.x * CONTENT_WIDTH / grid[0].size()
+#	var SPRITE_SIZE = SPRITE_TEXTURE_SIZE + SPRITE_TEXTURE_OFFSET
+
+
 func calculate_margins():
 	var grid_height = left_grid.GRID_ROW_AMOUNT * main_node.SPRITE_SIZE
-	var stamps_height = main_node.get_node("CanvasLayer/UI/Bottom/HBoxContainer").size.y
-	GRID_MARGIN_TOP = max(get_viewport().size.y - grid_height - stamps_height - 80, 50)
+	var stamps_height = stamps_ui.size.y
+	var viewport_height = get_viewport().size.y
+	GRID_MARGIN_TOP = clamp((viewport_height - grid_height - stamps_height) * .5, 80, 300)
 	print_debug(grid_height, " ", stamps_height, " -> ", GRID_MARGIN_TOP)
 
 
