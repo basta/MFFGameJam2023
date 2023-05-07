@@ -27,6 +27,7 @@ const level_names = [
 	"pears",
 	"flower",
 	"car",
+	"hilda",
 ]
 
 

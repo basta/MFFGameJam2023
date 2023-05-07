@@ -31,7 +31,13 @@ func disable() -> void:
 	visible = false
 
 
+func show_err() -> void:
+	modulate = Color(1, .2, .2, .8)
+	visible = true
+
+
 func enable() -> void:
+	modulate = Color("333333")
 	visible = true
 
 
