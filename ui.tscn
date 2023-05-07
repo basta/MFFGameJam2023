@@ -41,3 +41,6 @@ layout_mode = 2
 size_flags_vertical = 8
 alignment = 1
 script = ExtResource("1_o7ect")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/TeMenu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Undo2" to="." method="_on_undo_pressed"]

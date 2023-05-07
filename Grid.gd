@@ -41,6 +41,8 @@ func init_grid(rows, cols):
 	# TODO: free all nodes when reseting level
 	# for i in get_children():
 	# 	queue_free()
+	data_matrix = []
+	sprite_matrix = []
 	for row in range(GRID_ROW_AMOUNT):
 		data_matrix.append([])
 		sprite_matrix.append([])

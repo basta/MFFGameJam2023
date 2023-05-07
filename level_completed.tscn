@@ -6,3 +6,8 @@
 
 [node name="CompletedGrid" type="Node2D" parent="."]
 script = ExtResource("2_kg7dg")
+
+[node name="AnimationTimer" type="Timer" parent="CompletedGrid"]
+wait_time = 0.63
+
+[connection signal="timeout" from="CompletedGrid/AnimationTimer" to="CompletedGrid" method="_on_animation_timer_timeout"]

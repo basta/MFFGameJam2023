@@ -75,3 +75,5 @@ func _ready():
 func _process(delta):
 	pass
 
+func to_menu():
+	get_tree().change_scene_to_file("res://LevelSelect.tscn")
