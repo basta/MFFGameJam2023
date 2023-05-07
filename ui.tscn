@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ghak2tcqi5hk"]
+[gd_scene load_steps=5 format=3 uid="uid://ghak2tcqi5hk"]
 
 [ext_resource type="Script" path="res://UI/StampsContainer.gd" id="1_o7ect"]
 [ext_resource type="Script" path="res://ui.gd" id="1_qcpu2"]
+[ext_resource type="Texture2D" uid="uid://bqhhw4ihax5st" path="res://sprites/button_menu.svg" id="2_ls81n"]
+[ext_resource type="Texture2D" uid="uid://hx2nmsvr5c3w" path="res://sprites/button_undo.svg" id="3_2e7oh"]
 
 [node name="UI" type="MarginContainer"]
 anchors_preset = 15
@@ -10,6 +12,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qcpu2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TeMenu" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_ls81n")
+
+[node name="Undo2" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_2e7oh")
 
 [node name="Bottom" type="MarginContainer" parent="."]
 layout_mode = 2
