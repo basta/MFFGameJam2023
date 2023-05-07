@@ -8,4 +8,13 @@ script = ExtResource("1_xvgpg")
 [node name="AnimationTimer" type="Timer" parent="."]
 wait_time = 0.2
 
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 80.0
+offset_top = -26.0
+offset_right = 517.0
+offset_bottom = -10.0
+value = 50.0
+
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
+[connection signal="drag_ended" from="HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="drag_started" from="HSlider" to="." method="_on_h_slider_drag_started"]
