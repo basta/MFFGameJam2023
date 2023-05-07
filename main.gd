@@ -58,7 +58,7 @@ func is_level_solved() -> bool:
 func play_congrats_scene():
 	$Grid.hide()
 	$SourceGrid.hide()
-	$CanvasLayer.hide()
+	$CanvasLayer/UI.hide()
 	var completed_grid_node = load("res://completed_grid.tscn").instantiate()
 	add_child(completed_grid_node)
 	

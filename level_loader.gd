@@ -37,7 +37,10 @@ static func parse_stamp(text: String) -> Array:
 	)
 
 static func load_level(level_name: String):
-	var image = Image.load_from_file("levels/" + level_name + ".png")
+	
+	var img_texture = load("levels/" + level_name + ".png")
+	
+	var image: Image = img_texture.get_image() # You can delete this line
 	var width = image.get_width()
 	var height = image.get_height()
 	var grid = []
@@ -46,7 +49,7 @@ static func load_level(level_name: String):
 		for x in width:
 			row.append(image.get_pixel(x, y))
 		grid.append(row)
-	var stamps_file = FileAccess.open("levels/" + level_name + ".stamps", FileAccess.READ)
+	var stamps_file = FileAccess.open("res://levels/" + level_name + ".stamps", FileAccess.READ)
 	var stamps = []
 	for stamp_text in stamps_file.get_as_text().strip_edges(false, true).split("\n---\n"):
 		stamps.append(parse_stamp(stamp_text))

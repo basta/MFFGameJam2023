@@ -48,6 +48,10 @@ follow_viewport_enabled = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="ResponsiveController" type="Node" parent="."]
 script = ExtResource("10_yu41s")
 
