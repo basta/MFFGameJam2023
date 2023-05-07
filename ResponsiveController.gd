@@ -66,7 +66,8 @@ func calculate_grid_start_left(grid: Grid):
 		middle.x - grid_size.x - GRID_MARGIN,
 		GRID_MARGIN_TOP
 	)
-	
+
+
 func calculate_grid_start_right(grid: Grid):
 	var middle = get_viewport().size / 2
 	var grid_size = calculate_grid_size($"../Grid")
