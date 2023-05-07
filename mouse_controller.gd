@@ -1,6 +1,7 @@
 extends Node
 
-var stamp : Stamp
+
+var stamps: Stamps
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,15 +9,15 @@ func _ready():
 	pass # Replace with function body.
 
 
-func set_stamp(new_stamp):
-	stamp = new_stamp
-	print_debug("Selected stamp: ", new_stamp)
+func set_stamp(stamp):
+	stamps.current_stamp = stamp
+	print_debug("Selected stamp: ", stamp)
 	get_node("/root/Main/Grid").cursor.set_size(stamp.SIZE_Y, stamp.SIZE_X)
 	get_node("/root/Main/SourceGrid").cursor.set_size(stamp.SIZE_Y, stamp.SIZE_X)
 
 
 func reset():
-	stamp = null
+	stamps.current_stamp = null
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,7 +27,7 @@ func _process(delta):
 	if not grid_node || not source_grid_node:
 		return
 	var index_pos = grid_node.get_xy_from_global_pos(get_parent().get_node("Grid").get_global_mouse_position())
-	if stamp:
+	if stamps.current_stamp:
 		grid_node.place_cursor(index_pos)
 		source_grid_node.place_cursor(index_pos)
 	else:
@@ -39,8 +40,8 @@ func _input(event):
 		var main_node: Main =  get_node("/root/Main")
 		var grid_node: Grid = main_node.get_node("Grid")
 		var index_pos = grid_node.get_xy_from_global_pos(get_parent().get_node("Grid").get_global_mouse_position())
-		if stamp && grid_node.is_cursor_valid(index_pos):
-			grid_node.apply_stamp(index_pos.x, index_pos.y, stamp.stamp_matrix)
+		if stamps.current_stamp && grid_node.is_cursor_valid(index_pos):
+			grid_node.apply_stamp(index_pos.x, index_pos.y, stamps.current_stamp.stamp_matrix)
 			if main_node.is_level_solved():
 				main_node.play_congrats_scene()
 
