@@ -28,6 +28,7 @@ const level_names = [
 	"flower",
 	"car",
 	"hilda",
+	"pixtamp",
 ]
 
 

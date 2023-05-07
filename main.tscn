@@ -9,13 +9,13 @@
 [ext_resource type="Script" path="res://SourceGrid.gd" id="6_m47uo"]
 [ext_resource type="Script" path="res://Cursor.gd" id="8_f18px"]
 [ext_resource type="Texture2D" uid="uid://d2qodh4len8kg" path="res://sprites/black.png" id="9_1nvnu"]
-[ext_resource type="PackedScene" uid="uid://57tok8241fhi" path="res://background.tscn" id="9_auwul"]
+[ext_resource type="PackedScene" path="res://background.tscn" id="9_auwul"]
 [ext_resource type="Script" path="res://ResponsiveController.gd" id="10_yu41s"]
 [ext_resource type="AudioStream" uid="uid://cwdye0boyjsh0" path="res://audio/533146__mattfinarelli__drop-water.mp3" id="11_06t3d"]
 [ext_resource type="Texture2D" uid="uid://bqhhw4ihax5st" path="res://sprites/button_menu.svg" id="11_k7eq0"]
 [ext_resource type="Script" path="res://SoundController.gd" id="11_yaikn"]
 [ext_resource type="Texture2D" uid="uid://hx2nmsvr5c3w" path="res://sprites/button_undo.svg" id="12_62ovj"]
-[ext_resource type="Texture2D" uid="uid://c8syd0m0n7slr" path="res://sprites/button_right.svg" id="13_cpffl"]
+[ext_resource type="Texture2D" uid="uid://kqpa11402ie3" path="res://sprites/button_right.svg" id="13_cpffl"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rl4kn")
