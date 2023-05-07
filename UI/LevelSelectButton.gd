@@ -13,4 +13,4 @@ func _process(delta):
 
 
 func _on_pressed():
-	get_node("/root/LevelSelect").select_level(level)
+	get_node("/root/Main").select_level(level)
