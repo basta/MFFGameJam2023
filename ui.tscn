@@ -34,13 +34,9 @@ texture_normal = ExtResource("3_2e7oh")
 [node name="Bottom" type="MarginContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_constants/margin_right = 100
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Bottom"]
 layout_mode = 2
 size_flags_vertical = 8
 alignment = 1
 script = ExtResource("1_o7ect")
-
-[connection signal="pressed" from="MarginContainer/HBoxContainer/TeMenu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Undo2" to="." method="_on_undo_pressed"]
