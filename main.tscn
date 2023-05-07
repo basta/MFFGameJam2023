@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0ltngmdndklm"]
+[gd_scene load_steps=17 format=3 uid="uid://d0ltngmdndklm"]
 
 [ext_resource type="PackedScene" uid="uid://b6uuv228q07xa" path="res://grid.tscn" id="1_dmvp1"]
 [ext_resource type="Script" path="res://main.gd" id="1_rl4kn"]
@@ -9,10 +9,13 @@
 [ext_resource type="Script" path="res://SourceGrid.gd" id="6_m47uo"]
 [ext_resource type="Script" path="res://Cursor.gd" id="8_f18px"]
 [ext_resource type="Texture2D" uid="uid://d2qodh4len8kg" path="res://sprites/black.png" id="9_1nvnu"]
-[ext_resource type="PackedScene" path="res://background.tscn" id="9_auwul"]
+[ext_resource type="PackedScene" uid="uid://57tok8241fhi" path="res://background.tscn" id="9_auwul"]
 [ext_resource type="Script" path="res://ResponsiveController.gd" id="10_yu41s"]
 [ext_resource type="AudioStream" uid="uid://cwdye0boyjsh0" path="res://audio/533146__mattfinarelli__drop-water.mp3" id="11_06t3d"]
+[ext_resource type="Texture2D" uid="uid://bqhhw4ihax5st" path="res://sprites/button_menu.svg" id="11_k7eq0"]
 [ext_resource type="Script" path="res://SoundController.gd" id="11_yaikn"]
+[ext_resource type="Texture2D" uid="uid://hx2nmsvr5c3w" path="res://sprites/button_undo.svg" id="12_62ovj"]
+[ext_resource type="Texture2D" uid="uid://c8syd0m0n7slr" path="res://sprites/button_right.svg" id="13_cpffl"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rl4kn")
@@ -48,9 +51,40 @@ follow_viewport_enabled = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Celebration" type="MarginContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_top = 0.799
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -517.752
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+mouse_filter = 2
+
+[node name="BottomNav" type="MarginContainer" parent="CanvasLayer/Celebration"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 64
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Celebration/BottomNav"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Celebration/BottomNav/CenterContainer"]
+layout_mode = 2
+
+[node name="TeMenu" type="TextureButton" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_k7eq0")
+
+[node name="Undo2" type="TextureButton" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_62ovj")
+
+[node name="NextLevel" type="TextureButton" parent="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("13_cpffl")
 
 [node name="ResponsiveController" type="Node" parent="."]
 script = ExtResource("10_yu41s")
@@ -63,3 +97,6 @@ stream = ExtResource("11_06t3d")
 volume_db = 10.0
 
 [connection signal="level_loaded" from="." to="SoundController" method="_on_main_level_loaded"]
+[connection signal="pressed" from="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/TeMenu" to="CanvasLayer/UI" method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/Undo2" to="CanvasLayer/UI" method="_on_undo_pressed"]
+[connection signal="pressed" from="CanvasLayer/Celebration/BottomNav/CenterContainer/HBoxContainer/NextLevel" to="CanvasLayer/UI" method="_on_undo_pressed"]

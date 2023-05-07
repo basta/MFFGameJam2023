@@ -1,6 +1,7 @@
 extends Grid
 
 var i;
+var paused;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	i = 0
@@ -13,13 +14,14 @@ func animate():
 	$"../ResponsiveController".resized()
 	var timer : Timer = $"AnimationTimer"
 	timer.start()
+	$HSlider.max_value = len(move_history)
 
 func animate_once():
-	if i < len(move_history):
-		animate_move(move_history[i])
-		i += 1
-	else:
-		replay()
+	if not paused:
+		$HSlider.value = i
+		if i < len(move_history):
+			animate_move(move_history[i])
+			i += 1
 
 func animate_move(move):
 	for change in move:
@@ -34,3 +36,19 @@ func replay():
 
 func _on_animation_timer_timeout():
 	animate_once()
+
+func animate_until(n):
+	while n > i:
+		animate_once()
+
+
+func _on_h_slider_drag_ended(value_changed):
+	paused = false
+	if value_changed:
+		replay()
+		animate_until($HSlider.value)
+
+
+
+func _on_h_slider_drag_started():
+	paused = true

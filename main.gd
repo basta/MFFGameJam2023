@@ -62,6 +62,7 @@ func play_congrats_scene():
 	$Grid.hide()
 	$SourceGrid.hide()
 	$CanvasLayer/UI.hide()
+	$CanvasLayer/Celebration.visible = true
 	var completed_grid_node = load("res://completed_grid.tscn").instantiate()
 	add_child(completed_grid_node)
 	

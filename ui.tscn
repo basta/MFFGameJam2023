@@ -25,6 +25,7 @@ layout_mode = 2
 
 [node name="TeMenu" type="TextureButton" parent="Top/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "Menu"
 texture_normal = ExtResource("2_ls81n")
 
 [node name="Undo2" type="TextureButton" parent="Top/HBoxContainer"]
