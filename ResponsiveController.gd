@@ -59,7 +59,7 @@ func calculate_margins():
 	var grid_height = left_grid.GRID_ROW_AMOUNT * main_node.SPRITE_SIZE
 	var stamps_height = stamps_ui.size.y
 	var viewport_height = get_viewport().size.y
-	GRID_MARGIN_TOP = clamp((viewport_height - grid_height - stamps_height) * .5, 80, 300)
+	GRID_MARGIN_TOP = clamp((viewport_height - grid_height - stamps_height) * .5, 20, 300)
 
 
 func calculate_grid_start_left(grid: Grid):
