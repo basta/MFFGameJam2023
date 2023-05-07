@@ -41,8 +41,8 @@ func center_celebration_if_exists():
 func resize_background():
 	$"../Background".scale = get_viewport().size / 2000.
 	$"../Background".position = get_viewport().size / 2
-	
-	
+
+
 func calculate_grid_size(grid: Grid) -> Vector2:
 	return Vector2(
 		grid.GRID_COL_AMOUNT * tile_size,
@@ -60,7 +60,6 @@ func calculate_margins():
 	var stamps_height = stamps_ui.size.y
 	var viewport_height = get_viewport().size.y
 	GRID_MARGIN_TOP = clamp((viewport_height - grid_height - stamps_height) * .5, 80, 300)
-	print_debug(grid_height, " ", stamps_height, " -> ", GRID_MARGIN_TOP)
 
 
 func calculate_grid_start_left(grid: Grid):
