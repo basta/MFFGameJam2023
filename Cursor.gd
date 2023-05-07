@@ -15,8 +15,8 @@ var cursor_err_texture = load("res://sprites/cursor_err.svg")
 func _ready():
 	var main_node = get_node("/root/Main")
 	BASE_SCALE = float(main_node.SPRITE_SIZE) / main_node.SPRITE_TEXTURE_SIZE
-	# scale.x = BASE_SCALE
-	# scale.y = BASE_SCALE
+	scale.x = BASE_SCALE
+	scale.y = BASE_SCALE
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,7 +41,7 @@ func set_size(rows, cols) -> void:
 			var child = source_child.duplicate()
 			# child.scale.x = BASE_SCALE * cols
 			# child.scale.y = BASE_SCALE * rows
-			child.position = source_child.position + Vector2(col * main_node.SPRITE_SIZE, row * main_node.SPRITE_SIZE)
+			child.position = Vector2(col * main_node.SPRITE_TEXTURE_SIZE, row * main_node.SPRITE_TEXTURE_SIZE)
 			add_child(child)
 
 
