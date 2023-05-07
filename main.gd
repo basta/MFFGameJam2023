@@ -11,7 +11,7 @@ const CONTENT_WIDTH = .8
 signal level_loaded
 
 
-var level_names = [
+const level_names = [
 	"neco", # TODO: remove before publishing!
 	"heart",
 	"tree",
