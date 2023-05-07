@@ -60,7 +60,7 @@ func set_grid_position(row, col, object):
 
 const HALF_CYAN = Color("#80ffff")
 const HALF_MAGENTA = Color("#ff80ff")
-const HALF_YELLOW = Color("#ffff80")
+const HALF_YELLOW = Color("#fffb9f")
 const MIXING = {
 	HALF_CYAN: {
 		HALF_CYAN: Color("#00ffff"),
@@ -75,7 +75,7 @@ const MIXING = {
 	HALF_YELLOW: {
 		HALF_CYAN: Color("#00ff00"),
 		HALF_MAGENTA: Color("#ff0000"),
-		HALF_YELLOW: Color("#ffff00"),
+		HALF_YELLOW: Color("#ffde00"),
 	},
 }
 

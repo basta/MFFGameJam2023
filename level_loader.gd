@@ -11,12 +11,12 @@ const COLORS = {
 	"O": Color("#ff8000"),
 	"R": Color("#ff0000"),
 	"W": Color("#ffffff"),
-	"Y": Color("#ffff00"),
+	"Y": Color("#ffde00"),
 	"b": Color("#0000ff"),
 	"c": Color("#80ffff"),
 	"g": Color("#008000"),
 	"m": Color("#ff80ff"),
-	"y": Color("#ffff80"),
+	"y": Color("#fffb9f"),
 }
 
 static func parse_stamp(text: String) -> Array:
