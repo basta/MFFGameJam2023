@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh6ffnlgx254d"]
+
+[ext_resource type="AudioStream" uid="uid://cwdye0boyjsh0" path="res://audio/533146__mattfinarelli__drop-water.mp3" id="1_sc1qc"]
+[ext_resource type="Script" path="res://transition.gd" id="2_8jr35"]
+
+[node name="transition" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_sc1qc")
+volume_db = 20.0
+max_polyphony = 10
+script = ExtResource("2_8jr35")

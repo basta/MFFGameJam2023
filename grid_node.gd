@@ -14,18 +14,27 @@ func _ready():
 	$Tile.material = ShaderMaterial.new()
 	$Tile.material.shader = shader
 	SoundController = get_node("/root/Main/SoundController")
-	transition(color)
+	transition(color, 0, false)
 	
-func transition(new_color: Color):
-	transition_progress = 0
+var last_delay = 0
+func transition(new_color: Color, delay=0, emit=true):
+	last_delay = delay
+	transition_progress = -delay/transition_time
 	$Tile.material.set_shader_parameter("old_color", color)
 	$Tile.material.set_shader_parameter("new_color", new_color)
 	color = new_color
-	if SoundController != null:
-		SoundController.tile_transitioned()
+	did_emit = false
+	should_emit = emit
 	
+var should_emit = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var transition_progress = 0.
+var did_emit = false
 func _process(delta):
+	if transition_progress > 0 and not did_emit:
+		did_emit = true
+		if SoundController != null and should_emit:
+			SoundController.tile_transitioned()
+
 	$Tile.material.set_shader_parameter("progress", transition_progress)
 	transition_progress += delta * 1/transition_time

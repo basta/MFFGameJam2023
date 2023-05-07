@@ -39,8 +39,8 @@ func center_celebration_if_exists():
 		
 		var SLIDER_SIZE = 100
 		var slider : HSlider = completed_grid_node.get_node("HSlider")
-		slider.position = view_size
-		slider.size = Vector2(SLIDER_SIZE, 30)
+		slider.position = Vector2(grid_size.x - grid_size.x/2, -50)
+		slider.size = Vector2(grid_size.x, 30)
 		
 func resize_background():
 	$"../Background".scale = get_viewport().size / 2000.

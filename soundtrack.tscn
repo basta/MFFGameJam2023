@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjhqyrsd8fl8a"]
+
+[ext_resource type="AudioStream" uid="uid://cdte358k1ye07" path="res://audio/Antarctica.mp3" id="1_04jwt"]
+
+[node name="Soundtrack" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_04jwt")
+autoplay = true
